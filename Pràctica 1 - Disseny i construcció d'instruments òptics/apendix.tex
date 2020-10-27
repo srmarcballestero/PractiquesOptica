@@ -1,0 +1,37 @@
+\section{Fórmules estadístiques}\label{sec:apendix}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+\subsection{Paràmetres centrals i de dispersió}
+Donada una mostra de $N$ elements $\left\{x_1,\dots,x_N\right\}$, definim els següents paràmetres estadístics.
+\begin{itemize}[label=--]
+    \item Mitjana aritmètica \begin{equation}\label{est:mitjana}
+            \langle x\rangle =\frac{1}{N} \sum_{i=1}^{N} x_i
+        \end{equation}
+    \item Desviació estàndard\footnote{S'ha fet servir la correcció de Bessel $\sqrt{N/(N-1)}$ de la desviació estàndard poblacional.} \begin{equation}\label{est:stdev}
+            {\displaystyle \sigma_x ={\sqrt {{\frac {1}{N-1}}\sum _{i=1}^{N}(x_{i}-\langle x \rangle )^{2}}}}
+        \end{equation}
+    \item Error estàndard \begin{equation}\label{est:err}
+   {\displaystyle \delta{x} ={\frac {\sigma_x}{\sqrt {N}}}}
+\end{equation}
+
+\end{itemize}
+\subsection{Estimacions lineals}
+Per al càlcul de les estimacions lineals s'usa la funció \texttt{ESTIMACION.LINEAL} del full de càlcul \texttt{Microsoft Excel}, que proporciona el pendent i l'ordenada a l'origen de la recta de regressió amb les seves corresponents incerteses, així com el coeficient de correlació $R^2$ i l'error estàndard de la regressió.
+% El funcionament complet de la funció es pot consultar a \url{https://support.office.com/es-es/article/estimacion-lineal-funci\%C3\%B3n-estimacion-lineal-84d7d0d9-6e50-4101-977a-fa7abf772b6d}.
+
+\subsection{Test \texorpdfstring{$\chi^2$}{x2}}
+Donat un ajust lineal $y=A\,x+B$, amb incertesa en la variable dependent $\delta y$ i error estàndard de la regressió $\delta y_\textup{reg}$, es defineix el \emph{coeficient $\chi^2$} com
+\begin{equation}
+    \chi^2 = \nu\, \left(\frac{\delta y_\textup{reg}}{\delta y}\right)
+\end{equation}
+on $\nu$ es el nombre de graus de llibertat de l'ajust. Amb això, podem definir el \emph{coeficient reduït $\chi^2_\nu$} com
+\begin{equation}
+    \chi^2_\nu = \frac{\delta y_\textup{reg}}{\delta y}
+\end{equation}
+El valor d'aquest paràmetre ens indica la bondat de l'ajust realitzat. Tenim que
+\begin{enumerate}[label=(\alph*)]
+    \item si \underline{$\delta y_\textup{reg} \ll \delta y$} o \underline{$\chi^2_\nu \ll 1$}, l'ajust és acceptable i probablement s'hagi sobreestimat $\delta y$;
+    \item si \underline{$\delta y_\textup{reg} \lesssim \delta y$} o \underline{$\chi^2_\nu \lesssim 1$}, l'ajust és acceptable; i
+    \item si \underline{$\delta y_\textup{reg} \gg \delta y$} o \underline{$\chi^2_\nu \gg 1$} l'ajust no és acceptable.
+\end{enumerate}
