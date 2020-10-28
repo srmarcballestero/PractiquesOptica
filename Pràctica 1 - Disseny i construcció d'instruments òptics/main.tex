@@ -203,22 +203,29 @@ L'objectiu, que treballa com un projector, s'ha col·locat davant de la diaposit
 
 Així doncs, tenim que la longitud òptica del tub, que no és més que la distància entre el focus imatge de l'objectiu i el focus objecte de l'ocular, vindrà donada per
 \begin{equation}\label{eq:longtub}
-  t = d_{\textup{obj} \rightarrow \textup{ocu}} - \left( f'_\textup{obj} - f'_\textup{ocu}\right)
+  t = d_{\textup{obj} \rightarrow \textup{ocu}} - \left( f'_\textup{obj} + f'_\textup{ocu}\right)
 \end{equation}
-i val $t = \SI{66.9 \pm 0.1}{\centi\metre}$.
+i val $t = \SI{66.9 \pm 0.3}{\centi\metre}$.
 
-Ara, ens proposem calcular l'augment angular del microscopi $\Gamma'$. Per fer-ho, primer calculem l'agument lateral de l'objectiu, segons
+Ara, ens proposem calcular l'augment angular del microscopi $\Gamma'$. Per fer-ho, primer calculem l'augment lateral de l'objectiu, segons
 \begin{equation}\label{eq:augobj}
   \beta'_\textup{obj} = -\frac{t}{f'_\textup{obj}}, \hspace{3mm} \delta \beta'_\textup{obj} = \sqrt{\left(\frac{\delta t}{f'_\textup{obj}}\right)^2 + \left[\frac{t}{\left(f'_\textup{obj}\right)^2} \, \delta f'_\textup{obj} \right]^2}
 \end{equation}
-i obtenim que $\beta'_\textup{obj} = -6.37 \pm 0.18$. Així mateix, calculem l'augment angular de l'ocular segons \eqref{eq:augmentull} i obtenim $\Gamma'_\textup{ocu} = 5.1 \pm 0.7$. Conegudes aquestes dades, podem expressar l'augment angular total del sistema com
+i obtenim que $\beta'_\textup{obj} = -6.37 \pm 0.18$. Així mateix, calculem l'augment angular de l'ocular segons \eqref{eq:augmentull} i obtenim $\Gamma'_\textup{ocu} = 5.1 \pm 0.07$. Conegudes aquestes dades, podem expressar l'augment angular total del sistema com
 \begin{equation}\label{eq:augmentotal}
   \Gamma' = \beta'_\textup{obj} \, \Gamma'_\textup{ocu} \hspace{3mm} \delta\Gamma' = \sqrt{\left(\Gamma'_\textup{ocu}\delta\beta'_\textup{obj}\right)^2 + \left(\beta'_\textup{obj}\delta\Gamma'_\textup{ocu}\right)^2}
 \end{equation}
-que resulta $\Gamma' = 32 \pm 5$.
+que resulta $\Gamma' = -32.0 \pm 1.0$.
 
-L'emergència de la pupil·la de sortida vindrà donada per \eqref{eq:pupilasortida} i val $e = \SI{}{\centi\metre}$.
+L'emergència de la pupil·la de sortida vindrà donada per \eqref{eq:pupilasortida} i val $e = \SI{7.25 \pm 0.15}{\centi\metre}$.
 
+Cal remarcar que s'ha observat una notable aberració esfèrica en els punts de l'espai imatge més allunyats de l'eix òptic. Així mateix, la coloració de la imatge resultava estranya, fet que s'atribueix a la font lumínica.
+
+Finalment, s'ha repetit el muntatge usant un altre ocular de potència $\tilde{P}_\textup{ocu} = \SI{9.5 \pm 0.3}{\dioptre}$ i diàmetre $\tilde{\diameter}_\textup{ocu} = \SI{5.5 \pm 0.1}{\centi\metre}$. La focal calculada segons \eqref{eq:focals} resulta $\tilde{f'}_\textup{ocu} = \SI{10.5 \pm 0.3}{\centi\metre}$. La distància entre l'objectiu i l'ocular és de $\tilde{d}_{\textup{obj} \rightarrow \textup{ocu}} = \SI{90.6 \pm 0.1}{\centi\metre}$.
+
+En aquest cas obtenim que la longitud òptica del tub és $\tilde{t} = \SI{69.6 \pm 0.4}{\centi\metre}$, l'augment lateral de l'objectiu es manté constant, l'augment angular de l'ocular és $\tilde{\Gamma}'_\textup{ocu} = 2.38 \pm 0.07$, l'augment angular total del sistema $\tilde{\Gamma}' = -15.2 \pm 0.6$ i l'emergència de la pupil·la de sortida $e = \SI{21.0 \pm 1.0}{\centi\metre}$.
+
+Notem que ara s'obté aproximadament la meitat d'augments que en el cas anterior, a canvi de tenir menys aberració esfèrica.
 
 
 
