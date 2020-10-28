@@ -137,7 +137,7 @@ Les focals de les lents vindran donades per
 \end{equation}
 d'on obtenim que $f'_\textup{obj} = \SI{52 \pm 3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{10.5 \pm 0.3}{\centi\metre}$.
 
-Per al muntatge del sistema, hem ajustat la posició de les lents observant en quina disposició les imatges a través del telescopi està enfocada. La distància entre les lents mesurada amb una cinta mètrica és $d = \SI{60.0\pm0.1}{\centi\metre}$, valor que observem que és compatible amb la suma de les focals de les lents $f'_\textup{obj} + f'_\textup{ocu} = \SI{62.5 \pm 3}{\centi\metre}$.
+Per al muntatge del sistema, hem ajustat la posició de les lents observant en quina disposició les imatges a través del telescopi està enfocada. La distància entre les lents mesurada amb una cinta mètrica és $d = \SI{60.0\pm0.1}{\centi\metre}$, valor que observem que és compatible amb la suma de les focals de les lents $f'_\textup{obj} + f'_\textup{ocu} = \SI{63 \pm 3}{\centi\metre}$.
 
 L'emergència de la pupil·la de sortida $e$, amb la seva corresponent incertesa $\delta e$, la podem calcular segons
 \begin{gather}\label{eq:pupilasortida}
@@ -201,8 +201,23 @@ L'objectiu, que treballa com un projector, s'ha col·locat davant de la diaposit
   \item la distància entre l'objectiu i la diapositiva $d_{\textup{obj} \rightarrow \textup{dia}} = \SI{11.3 \pm 0.1}{\centi\metre}$.
 \end{itemize}
 
+Així doncs, tenim que la longitud òptica del tub, que no és més que la distància entre el focus imatge de l'objectiu i el focus objecte de l'ocular, vindrà donada per
+\begin{equation}\label{eq:longtub}
+  t = d_{\textup{obj} \rightarrow \textup{ocu}} - \left( f'_\textup{obj} - f'_\textup{ocu}\right)
+\end{equation}
+i val $t = \SI{66.9 \pm 0.1}{\centi\metre}$.
 
+Ara, ens proposem calcular l'augment angular del microscopi $\Gamma'$. Per fer-ho, primer calculem l'agument lateral de l'objectiu, segons
+\begin{equation}\label{eq:augobj}
+  \beta'_\textup{obj} = -\frac{t}{f'_\textup{obj}}, \hspace{3mm} \delta \beta'_\textup{obj} = \sqrt{\left(\frac{\delta t}{f'_\textup{obj}}\right)^2 + \left[\frac{t}{\left(f'_\textup{obj}\right)^2} \, \delta f'_\textup{obj} \right]^2}
+\end{equation}
+i obtenim que $\beta'_\textup{obj} = -6.37 \pm 0.18$. Així mateix, calculem l'augment angular de l'ocular segons \eqref{eq:augmentull} i obtenim $\Gamma'_\textup{ocu} = 5.1 \pm 0.7$. Conegudes aquestes dades, podem expressar l'augment angular total del sistema com
+\begin{equation}\label{eq:augmentotal}
+  \Gamma' = \beta'_\textup{obj} \, \Gamma'_\textup{ocu} \hspace{3mm} \delta\Gamma' = \sqrt{\left(\Gamma'_\textup{ocu}\delta\beta'_\textup{obj}\right)^2 + \left(\beta'_\textup{obj}\delta\Gamma'_\textup{ocu}\right)^2}
+\end{equation}
+que resulta $\Gamma' = 32 \pm 5$.
 
+L'emergència de la pupil·la de sortida vindrà donada per \eqref{eq:pupilasortida} i val $e = \SI{}{\centi\metre}$.
 
 
 
