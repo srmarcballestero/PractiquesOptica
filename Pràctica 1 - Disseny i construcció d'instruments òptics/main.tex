@@ -163,6 +163,8 @@ Per contra, observem que si col·loquem el diafragma just davant de l'objectiu n
 
 Finalment, canviem l'ocular per un de potència $\tilde{P}_\textup{ocu} = \SI{20.0 \pm 0.3}{\dioptre}$ i diàmetre $\tilde{\diameter}_\textup{ocu} = \SI{5.0 \pm 0.1}{\centi\metre}$. Fent ús de les fórmules de la \eqref{eq:focals} a la \eqref{eq:augments}, obtenim que en aquest cas, l'emergència de la pupil·la de sortida és $\tilde{e} = \SI{5.50 \pm 0.10}{\centi\metre}$, l'augment $\tilde{\Gamma '} = -10.4 \pm 0.6$. La col·locació d'un diafragma en les mateixes posicions que en el cas anterior exhibeix un comportament anàleg i, en particular, inserint-ne un de $\diameter_\textup{DC} = \SI{2.5 \pm 0.1}{\centi\metre}$ en el pla focal comú es té el mateix camp d'observació que en el cas anterior, vist que l'equació \eqref{eq:semicamp} no depèn de la focal de l'ocular.
 
+En tots dos casos la imatge a través del sistema presenta aberració cromàtica, causada pel fet que l'índex de refracció de la llum en un medi material depèn de la seva longitud d'ona, per tant les lents del sistema dispersen la llum que s'hi transmet.
+
 \section{Ullera de Galileu} \label{sec:ulleragalileu}
 Una ullera de Galileu és un telescopi en el qual l'objectiu és una lent convergent i l'ocular una lent divergent, amb la qual cosa s'aconsegueix un augment angular positiu. En aquest cas la imatge de la pupil·la d'entrada es forma a l'interior del telescopi, de manera que es limita el camp i esdevé lluerna de sortida (LS), actuant l'objectiu com a diafragma de camp (DC). La pupil·la de sortida (PS) és la pupil·la de l'ull de l'observador.
 
@@ -173,6 +175,37 @@ Per a muntar el sistema hem procedit de manera similar a la secció \ref{sec:ull
 Fent servir les fórmules \eqref{eq:pupilasortida} i \eqref{eq:augments} obtenim que, en aquest cas, l'emergència de la pupil·la de sortida és $e = \SI{-8.8 \pm 0.3}{\centi\metre}$ i els augments valen $\Gamma' = 3.6 \pm 0.3$. Notem que per a aquest telescopi es compleix que, efectivament, $e < 0$, per tant la imatge de la pupil·la d'entrada es forma dins del tub, i $\Gamma' > 0$, per tant la imatge no s'inverteix.
 
 Per calcular el camp d'observació, notem que en aquest cas tenim que $\diameter_\textup{DC} = \diameter_\textup{obj}$, vist que l'objectiu actua com a diafragma de camp; aplicant \eqref{eq:semicamp} obtenim $2\omega = \SI{0.073 \pm 0.005}{\radian}$. Evidentment, col·locant un diafragma iris de diàmetre inferior al davant de l'objectiu, limitem el camp i la il·luminació del sistema.
+
+Finalment, cal remarcar que a les imatges a través d'aquest telescopi presenten una petita aberració esfèrica en els punts imatge allunyats del centre de la lent.
+
+\section{Microscopi compost} \label{sec:microscopi}
+\subsection{Il·luminació Köhler}\label{sec:kohler}
+El sistema d'il·luminació Köhler ens permet, a partir d'una font de llum, il·luminar l'objecte a observar a través d'un microscopi amb un feix de llum col·limada. Això s'aconsegueix mitjançant dues lents convergents, anomenades \emph{condensador} i \emph{lent de camp} o \emph{col·limador}, disposades de manera que el condensador se situa al pla focal objecte del col·limador, la qual cosa fa que la llum provinent de la font surti del sistema paral·lela, uniforme i col·limada.
+
+Per a la construcció del sistema Köhler s'ha usat com a condensador una lent de potència $P_\textup{cond} = \SI{19.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{cond} = \SI{4.0 \pm 0.1}{\centi\metre}$ i com a col·limador una lent de potència $P_\textup{col} = \SI{9.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{col} = \SI{5.5 \pm 0.1}{\centi\metre}$. Mitjançant \eqref{eq:focals} obtenim les focals de les lents, $f'_\textup{cond} = \SI{5.13 \pm 0.08}{\centi\metre}$ i $f'_\textup{col} = \SI{10.5 \pm 0.3}{\centi\metre}$. S'ha escollit una lent de focal curta per al condensador per a poder captar el màxim con de llum provinent de la font. A més a més, s'ha equipat la font de llum amb un difusor per tal de reduir la il·luminació del sistema.
+
+Per al muntatge del sistema, s'ha col·locat el condensador tan a prop de la font com és possible. Mitjançant una pantalla, s'ha observat en quina posició es forma la imatge de la font a través del condensador, i s'ha col·locat el col·limador de manera que el seu pla focal objecte coincideixi amb la posició determinada amb la pantalla.
+
+\subsection{Microscopi}\label{sec:submicroscopi}
+Un microscopi compost està format per dues lents convergents, anomenades \emph{objectiu} i \emph{ocular}, de manera que l'objectiu forma una imatge engrandida de l'objecte, i l'ocular, actuant com a lupa, augmenta un segon cop la imatge. Atès que la distància del punt proper de l'ull humà és aproximadament $\SI{25}{\centi\metre}$, s'ha d'escollir un ocular de focal inferior a aquesta xifra, ja que l'augment angular de la imatge ve donat per
+\begin{equation}\label{eq:augmentull}
+  \Gamma'_\textup{ocu} = \frac{\SI{25}{\centi\metre}}{f'_\textup{ocu}}
+\end{equation}
+
+Un cop dissenyat el sistema d'il·luminació, s'ha col·locat l'objecte a observar a poca distància de la lent col·limadora (per tal d'estalviar espai en en el banc) i s'ha procedit a muntar les lents del microscopi. Com a objectiu s'ha escollit una lent de potència $P_\textup{obj} = \SI{9.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{obj} = \SI{5.5 \pm 0.1}{\centi\metre}$ i per a l'ocular una altra lent de potència $P_\textup{ocu} = \SI{20.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{ocu} = \SI{5.0 \pm 0.1}{\centi\metre}$. Així doncs, aplicant \eqref{eq:focals} obtenim que les focals de les lents són $f'_\textup{obj} = \SI{10.5 \pm 0.3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{4.93 \pm 0.07}{\centi\metre}$.
+
+L'objectiu, que treballa com un projector, s'ha col·locat davant de la diapositiva a una distància superior a la seva focal. Mitjançant una pantalla, s'ha trobat la posició en què s'obté una imatge prou augmentada de la diapositiva a través de l'objectiu, que ha de correspondre a la posició del pla objecte de l'ocular per tal que els raigs surtin paral·lels i l'ull els pugui acomodar. En definitiva, tenim que
+\begin{itemize}[label=--]
+  \item la distància entre l'objectiu i l'ocular és $d_{\textup{obj} \rightarrow \textup{ocu}} = \SI{82.3 \pm 0.1}{\centi\metre}$,
+  \item la distància entre el col·limador i l'objectiu és $d_{\textup{col} \rightarrow \textup{obj}} = \SI{17.3 \pm 0.1}{\centi\metre}$ i
+  \item la distància entre l'objectiu i la diapositiva $d_{\textup{obj} \rightarrow \textup{dia}} = \SI{11.3 \pm 0.1}{\centi\metre}$.
+\end{itemize}
+
+
+
+
+
+
 
 
 \appendix
