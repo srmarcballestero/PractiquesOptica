@@ -92,9 +92,13 @@
   },
 }
 \usetikzlibrary{spy}
+
 %___CONFIGURACIÓ DELS PEUS DE FIGURA___%
 \captionsetup[figure]{justification = centering,labelfont={small,sc},textfont=small}
 \captionsetup[table]{name = Tabla, justification = centering,labelfont={small,sc},textfont=small}
+
+%___DIRECTORI D'IMATGES___%
+\graphicspath{ {./Imatges/} }
 
 
 
@@ -128,6 +132,8 @@ Per a determinar la potència de les diferents lents usades en la pràctica, s'h
 
 \section{Ullera astronòmica} \label{sec:ullastro}
 Una ullera astronòmica és un telescopi que consta de dues lents convergents, anomenades \emph{objectiu} i \emph{ocular} posicionades de tal manera que coincideixin el pla focal imatge de l'objectiu i el pla focal objecte de l'ocular. L'objectiu és alhora el diafragma d'obertura (DA) i la pupil·la d'entrada (PE), i la seva imatge a través de l'ocular ens dóna la pupil·la de sortida (PS).
+
+\input{Figures/UlleraAstronomica}
 
 Per a la construcció de la ullera astronòmica hem usat, doncs, dues lents convergents, una de potència $P_\textup{obj} = \SI{2.00 \pm 0.13}{\dioptre}$ per a l'objectiu i una de $P_\textup{ocu} = \SI{9.5 \pm 0.3}{\dioptre}$ per a l'ocular, i de diàmetres respectius $\diameter_\textup{obj} = \SI{6.5 \pm 0.1}{\centi\metre}$ i $\diameter_\textup{ocu} = \SI{5.5 \pm 0.1}{\centi\metre}$.
 
@@ -168,6 +174,8 @@ En tots dos casos la imatge a través del sistema presenta aberració cromàtica
 \section{Ullera de Galileu} \label{sec:ulleragalileu}
 Una ullera de Galileu és un telescopi en el qual l'objectiu és una lent convergent i l'ocular una lent divergent, amb la qual cosa s'aconsegueix un augment angular positiu. En aquest cas la imatge de la pupil·la d'entrada es forma a l'interior del telescopi, de manera que es limita el camp i esdevé lluerna de sortida (LS), actuant l'objectiu com a diafragma de camp (DC). La pupil·la de sortida (PS) és la pupil·la de l'ull de l'observador.
 
+\input{Figures/UlleraGalileu}
+
 Per a construir la ullera de Galileu hem usat un objectiu de potència $P_\textup{obj} = \SI{2.25 \pm 0.13}{\dioptre}$ i diàmetre $\diameter_\textup{obj} = \SI{6.5 \pm 0.1}{\centi\metre}$, i un ocular de potència $P_\textup{ocu} = \SI{-8.3 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{ocu} = \SI{5.5 \pm 0.1}{\centi\metre}$. Usant \eqref{eq:focals} obtenim les focals, $f'_\textup{obj} = \SI{44 \pm 3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{-12.1 \pm 0.4}{\centi\metre}$.
 
 Per a muntar el sistema hem procedit de manera similar a la secció \ref{sec:ullastro}, comprovant en quina posició les imatges observades a través del telescopi s'enfoquen, obtenint que la separació adequada entre les lents és $d = \SI{33 \pm 0.1}{\centi\metre}$, valor compatible amb la suma de les focals $f'_\textup{obj} + f'_\textup{ocu} = \SI{32 \pm 3}{\centi\metre}$.
@@ -181,6 +189,8 @@ Finalment, cal remarcar que a les imatges a través d'aquest telescopi presenten
 \section{Microscopi compost} \label{sec:microscopi}
 \subsection{Il·luminació Köhler}\label{sec:kohler}
 El sistema d'il·luminació Köhler ens permet, a partir d'una font de llum, il·luminar l'objecte a observar a través d'un microscopi amb un feix de llum col·limada. Això s'aconsegueix mitjançant dues lents convergents, anomenades \emph{condensador} i \emph{lent de camp} o \emph{col·limador}, disposades de manera que el colimador se situa al pla on es forma la imatge del condensador, la qual cosa fa que la llum provinent de la font surti del sistema paral·lela, uniforme i col·limada.
+
+\input{Figures/Kohler}
 
 Per a la construcció del sistema Köhler s'ha usat com a condensador una lent de potència $P_\textup{cond} = \SI{19.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{cond} = \SI{4.0 \pm 0.1}{\centi\metre}$ i com a col·limador una lent de potència $P_\textup{col} = \SI{9.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{col} = \SI{5.5 \pm 0.1}{\centi\metre}$. Mitjançant \eqref{eq:focals} obtenim les focals de les lents, $f'_\textup{cond} = \SI{5.13 \pm 0.08}{\centi\metre}$ i $f'_\textup{col} = \SI{10.5 \pm 0.3}{\centi\metre}$. S'ha escollit una lent de focal curta per al condensador per a poder captar el màxim con de llum provinent de la font. A més a més, s'ha equipat la font de llum amb un difusor per tal de reduir la il·luminació del sistema.
 
