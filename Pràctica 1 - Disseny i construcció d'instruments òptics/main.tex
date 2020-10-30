@@ -147,21 +147,21 @@ Per al muntatge del sistema, hem ajustat la posició de les lents observant en q
 
 L'emergència de la pupil·la de sortida $e$, amb la seva corresponent incertesa $\delta e$, la podem calcular segons
 \begin{gather}\label{eq:pupilasortida}
-    - \frac{1}{-\left (f'_\textup{obj} + f'_\textup{ocu}\right)} + \frac{1}{e} = \frac{1}{f'_\textup{ocu}} \Rightarrow e = \frac{f'_\textup{ocu}}{f'_\textup{obj}}\left(f'_\textup{obj}+f'_\textup{ocu}\right) \\
-    \delta e = \sqrt{\left(\frac{f'_\textup{ocu}}{f'_\textup{obj}}\right)^4\left(\delta f'_\textup{obj}\right)^2 + \left[\left(2\,\frac{f'_\textup{ocu}}{f'_\textup{obj}} + 1\right) \delta f'_\textup{ocu}\right]^2}
+    - \frac{1}{-\left (f'_\textup{obj} + f'_\textup{ocu}\right)} + \frac{1}{e} = \frac{1}{f'_\textup{ocu}} \Rightarrow e = \frac{f'_\textup{ocu}}{f'_\textup{obj}}\left(f'_\textup{obj}+f'_\textup{ocu}\right)% \\
+    %\delta e = \sqrt{\left(\frac{f'_\textup{ocu}}{f'_\textup{obj}}\right)^4\left(\delta f'_\textup{obj}\right)^2 + \left[\left(2\,\frac{f'_\textup{ocu}}{f'_\textup{obj}} + 1\right) \delta f'_\textup{ocu}\right]^2}
 \end{gather}
 i obtenim que $e$ = \SI{12.6 \pm 0.4}{\centi\metre}.
 
 Per calcular l'augment fem servir que
 \begin{equation}\label{eq:augments}
-    \Gamma' = -\frac{f'_\textup{obj}}{f'_\textup{ocu}}, \hspace{3mm} \delta \Gamma' = \sqrt{\left(\frac{\delta f'_\textup{obj}}{f'_\textup{ocu}}\right)^2 + \left[\frac{f'_\textup{obj}}{\left(f'_\textup{ocu}\right)^2} \, \delta f'_\textup{ocu}\right]^2}
+    \Gamma' = -\frac{f'_\textup{obj}}{f'_\textup{ocu}}%, \hspace{3mm} \delta \Gamma' = \sqrt{\left(\frac{\delta f'_\textup{obj}}{f'_\textup{ocu}}\right)^2 + \left[\frac{f'_\textup{obj}}{\left(f'_\textup{ocu}\right)^2} \, \delta f'_\textup{ocu}\right]^2}
 \end{equation}
 i obtenim que val $\Gamma' = -5.0 \pm 0.3$.
 
 Ara, col·loquem un diafragma iris en diverses posicions i analitzem el comportament del sistema òptic.
 Si posicionem el diafragma en el pla focal comú entre les dues lents, aquest actua com a diafragma de camp (DC). En aquest cas, observem que a mesura que reduïm l'obertura del diafragma es perd camp d'observació, però no il·luminació. El semicamp d'observació $\omega$ ve donat per
 \begin{equation}\label{eq:semicamp}
-    \omega = \arctan{\frac{\diameter_\textup{DC}}{2\,f'_\textup{obj}}}, \hspace{3mm} \delta\omega = \frac{2}{\diameter_\textup{DC} ^2 + \left(2 f'_\textup{obj}\right)^2} \, \sqrt{\left(f'_\textup{obj} \delta \diameter_\textup{DC}\right)^2 + \left(\diameter_\textup{DC} \delta f'_\textup{obj} \right)^2}
+    \omega = \arctan{\frac{\diameter_\textup{DC}}{2\,f'_\textup{obj}}}%, \hspace{3mm} \delta\omega = \frac{2}{\diameter_\textup{DC} ^2 + \left(2 f'_\textup{obj}\right)^2} \, \sqrt{\left(f'_\textup{obj} \delta \diameter_\textup{DC}\right)^2 + \left(\diameter_\textup{DC} \delta f'_\textup{obj} \right)^2}
 \end{equation}
 on $\diameter_\textup{DC}$ és el diametre del diafragma de camp, que hem près com $\diameter_\textup{DC} = \SI{2.5 \pm 0.1}{\centi\metre}$. Per tant, tenim que el camp d'observació val $2\omega = \SI{0.048\pm0.003}{\radian}$.
 
@@ -202,28 +202,36 @@ Un microscopi compost està format per dues lents convergents, anomenades \emph{
   \Gamma'_\textup{ocu} = \frac{\SI{25}{\centi\metre}}{f'_\textup{ocu}}
 \end{equation}
 
-Un cop dissenyat el sistema d'il·luminació, s'ha col·locat l'objecte a observar a poca distància de la lent col·limadora (per tal d'estalviar espai en en el banc) i s'ha procedit a muntar les lents del microscopi. Com a objectiu s'ha escollit una lent de potència $P_\textup{obj} = \SI{9.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{obj} = \SI{5.5 \pm 0.1}{\centi\metre}$ i per a l'ocular una altra lent de potència $P_\textup{ocu} = \SI{20.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{ocu} = \SI{5.0 \pm 0.1}{\centi\metre}$. Així doncs, aplicant \eqref{eq:focals} obtenim que les focals de les lents són $f'_\textup{obj} = \SI{10.5 \pm 0.3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{4.93 \pm 0.07}{\centi\metre}$.
+\input{Figures/Microscopi.tex}
 
-L'objectiu, que treballa com un projector, s'ha col·locat davant de la diapositiva a una distància superior a la seva focal. Mitjançant una pantalla, s'ha trobat la posició en què s'obté una imatge prou augmentada de la diapositiva a través de l'objectiu, que ha de correspondre a la posició del pla objecte de l'ocular per tal que els raigs surtin paral·lels i l'ull els pugui acomodar. En definitiva, tenim que
+Un cop dissenyat el sistema d'il·luminació, s'ha col·locat l'objecte a observar a poca distància de la lent col·limadora (per tal d'estalviar espai en en el banc) i s'ha procedit a muntar les lents del microscopi. Com a objectiu s'ha escollit una lent de potència $P_\textup{obj}^\textup{exp} = \SI{9.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{obj} = \SI{5.5 \pm 0.1}{\centi\metre}$ i per a l'ocular una altra lent de potència $P_\textup{ocu}^\textup{exp} = \SI{20.5 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{ocu} = \SI{5.0 \pm 0.1}{\centi\metre}$. Cal destacar que les anteriors focals són les mesurades amb el frontofocòmetre, fet que, donada la seva precisió limitada, introdueix notables discrepàncies en els càlculs posteriors. Per a obtenir mesures més compatibles, s'han considerat les potències nominals de les lents, $P_\textup{obj} = \SI{10.0 \pm 0.1}{\dioptre}$ i $P_\textup{ocu} = \SI{20.0 \pm 0.2}{\dioptre}$. Així doncs, aplicant \eqref{eq:focals} obtenim que les focals de les lents són $f'_\textup{obj} = \SI{10.0 \pm 0.1}{\centi\metre}$ i $f'_\textup{ocu} = \SI{5.00 \pm 0.03}{\centi\metre}$.
+
+L'objectiu, que treballa com un projector, s'ha col·locat davant de la diapositiva a una distància superior a la seva focal. Mitjançant una pantalla, s'ha trobat la posició en què s'obté una imatge prou augmentada de la diapositiva a través de l'objectiu, que ha de correspondre a la posició del pla objecte de l'ocular per tal que els raigs surtin paral·lels i l'ull els pugui acomodar. Les distàncies entre els elements òptics mesurades amb una cinta mètrica són
 \begin{itemize}[label=--]
-  \item la distància entre l'objectiu i l'ocular és $d_{\textup{obj} \rightarrow \textup{ocu}} = \SI{82.3 \pm 0.1}{\centi\metre}$,
-  \item la distància entre el col·limador i l'objectiu és $d_{\textup{col} \rightarrow \textup{obj}} = \SI{17.3 \pm 0.1}{\centi\metre}$ i
-  \item la distància entre l'objectiu i la diapositiva $d_{\textup{obj} \rightarrow \textup{dia}} = \SI{11.3 \pm 0.1}{\centi\metre}$.
+  \item la distància entre l'objectiu i l'ocular és $d_{\textup{obj} \rightarrow \textup{ocu}}^\textup{exp} = \SI{82.3 \pm 0.1}{\centi\metre}$,
+  %\item la distància entre el col·limador i l'objectiu és $d_{\textup{col} \rightarrow \textup{obj}} = \SI{17.3 \pm 0.1}{\centi\metre}$ i
+  \item la distància entre l'objectiu i la diapositiva $d_{\textup{obj} \rightarrow \textup{dia}}^\textup{exp} = -s_\textup{obj} =  \SI{11.3 \pm 0.1}{\centi\metre}$.
 \end{itemize}
+
+Aplicant l'equació de les lents, podem calcular la distància entre l'objectiu i l'ocular donades les seves focals. Fem servir que
+\begin{equation}\label{eq:lents}
+  -\frac{1}{s_\textup{obj}} + \frac{1}{s'_\textup{obj}} = \frac{1}{f'_\textup{obj}} \Rightarrow s'_\textup{obj} = \frac{s_\textup{obj}\, f'_\textup{obj}}{s_\textup{obj} + f'_\textup{obj}}
+\end{equation}
+i obtenim que $s'_\textup{obj} = \SI{87 \pm 10}{\centi\metre}$. Així doncs, la distància entre l'objectiu i l'ocular ve donada per $d_{\textup{obj} \rightarrow \textup{dia}} = s'_\textup{obj} + f'_\textup{ocu} = \SI{92 \pm 10}{\centi\metre}$, valor compatible amb l'obtingut amb la cinta mètrica.
 
 Així doncs, tenim que la longitud òptica del tub, que no és més que la distància entre el focus imatge de l'objectiu i el focus objecte de l'ocular, vindrà donada per
 \begin{equation}\label{eq:longtub}
   t = d_{\textup{obj} \rightarrow \textup{ocu}} - \left( f'_\textup{obj} + f'_\textup{ocu}\right)
 \end{equation}
-i val $t = \SI{66.9 \pm 0.3}{\centi\metre}$.
+i val $t = \SI{77 \pm 10}{\centi\metre}$.
 
 Ara, ens proposem calcular l'augment angular del microscopi $\Gamma'$. Per fer-ho, primer calculem l'augment lateral de l'objectiu, segons
 \begin{equation}\label{eq:augobj}
-  \beta'_\textup{obj} = -\frac{t}{f'_\textup{obj}}, \hspace{3mm} \delta \beta'_\textup{obj} = \sqrt{\left(\frac{\delta t}{f'_\textup{obj}}\right)^2 + \left[\frac{t}{\left(f'_\textup{obj}\right)^2} \, \delta f'_\textup{obj} \right]^2}
+  \beta'_\textup{obj} = -\frac{t}{f'_\textup{obj}}%, \hspace{3mm} \delta \beta'_\textup{obj} = \sqrt{\left(\frac{\delta t}{f'_\textup{obj}}\right)^2 + \left[\frac{t}{\left(f'_\textup{obj}\right)^2} \, \delta f'_\textup{obj} \right]^2}
 \end{equation}
 i obtenim que $\beta'_\textup{obj} = -6.37 \pm 0.18$. Així mateix, calculem l'augment angular de l'ocular segons \eqref{eq:augmentull} i obtenim $\Gamma'_\textup{ocu} = 5.1 \pm 0.07$. Conegudes aquestes dades, podem expressar l'augment angular total del sistema com
 \begin{equation}\label{eq:augmentotal}
-  \Gamma' = \beta'_\textup{obj} \, \Gamma'_\textup{ocu} \hspace{3mm} \delta\Gamma' = \sqrt{\left(\Gamma'_\textup{ocu}\delta\beta'_\textup{obj}\right)^2 + \left(\beta'_\textup{obj}\delta\Gamma'_\textup{ocu}\right)^2}
+  \Gamma' = \beta'_\textup{obj} \, \Gamma'_\textup{ocu}%, \hspace{3mm} \delta\Gamma' = \sqrt{\left(\Gamma'_\textup{ocu}\delta\beta'_\textup{obj}\right)^2 + \left(\beta'_\textup{obj}\delta\Gamma'_\textup{ocu}\right)^2}
 \end{equation}
 que resulta $\Gamma' = -32.0 \pm 1.0$.
 
