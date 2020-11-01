@@ -141,33 +141,33 @@ Les focals de les lents vindran donades per
 \begin{equation}\label{eq:focals}
     f'_\textup{i} = \frac{1}{P_\textup{i}}, \hspace{3mm} \delta f'_\textup{i} = \frac{\delta P_\textup{i}}{P_\textup{i}^2}
 \end{equation}
-d'on obtenim que $f'_\textup{obj} = \SI{52 \pm 3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{10.5 \pm 0.3}{\centi\metre}$.
+d'on obtenim que $f'_\textup{obj} = \SI{50 \pm 3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{10.5 \pm 0.3}{\centi\metre}$.
 
 Per al muntatge del sistema, hem ajustat la posició de les lents observant en quina disposició les imatges a través del telescopi està enfocada. La distància entre les lents mesurada amb una cinta mètrica és $d = \SI{60.0\pm0.1}{\centi\metre}$, valor que observem que és compatible amb la suma de les focals de les lents $f'_\textup{obj} + f'_\textup{ocu} = \SI{63 \pm 3}{\centi\metre}$.
 
-L'emergència de la pupil·la de sortida $e$, amb la seva corresponent incertesa $\delta e$, la podem calcular segons
+L'emergència de la pupil·la de sortida $e$, amb la seva corresponent incertesa $\delta e$, la podem calcular fent servir l'equació de les lents, tenint en compte que la pupil·la de sortida és la imatge de l'objectiu a través de l'ocular. Tenim que
 \begin{gather}\label{eq:pupilasortida}
     - \frac{1}{-\left (f'_\textup{obj} + f'_\textup{ocu}\right)} + \frac{1}{e} = \frac{1}{f'_\textup{ocu}} \Rightarrow e = \frac{f'_\textup{ocu}}{f'_\textup{obj}}\left(f'_\textup{obj}+f'_\textup{ocu}\right)% \\
     %\delta e = \sqrt{\left(\frac{f'_\textup{ocu}}{f'_\textup{obj}}\right)^4\left(\delta f'_\textup{obj}\right)^2 + \left[\left(2\,\frac{f'_\textup{ocu}}{f'_\textup{obj}} + 1\right) \delta f'_\textup{ocu}\right]^2}
 \end{gather}
-i obtenim que $e$ = \SI{12.6 \pm 0.4}{\centi\metre}.
+i per tant $e$ = \SI{12.7 \pm 0.4}{\centi\metre}.
 
 Per calcular l'augment fem servir que
 \begin{equation}\label{eq:augments}
     \Gamma' = -\frac{f'_\textup{obj}}{f'_\textup{ocu}}%, \hspace{3mm} \delta \Gamma' = \sqrt{\left(\frac{\delta f'_\textup{obj}}{f'_\textup{ocu}}\right)^2 + \left[\frac{f'_\textup{obj}}{\left(f'_\textup{ocu}\right)^2} \, \delta f'_\textup{ocu}\right]^2}
 \end{equation}
-i obtenim que val $\Gamma' = -5.0 \pm 0.3$.
+i obtenim que val $\Gamma' = -4.8 \pm 0.3$.
 
 Ara, col·loquem un diafragma iris en diverses posicions i analitzem el comportament del sistema òptic.
 Si posicionem el diafragma en el pla focal comú entre les dues lents, aquest actua com a diafragma de camp (DC). En aquest cas, observem que a mesura que reduïm l'obertura del diafragma es perd camp d'observació, però no il·luminació. El semicamp d'observació $\omega$ ve donat per
 \begin{equation}\label{eq:semicamp}
     \omega = \arctan{\frac{\diameter_\textup{DC}}{2\,f'_\textup{obj}}}%, \hspace{3mm} \delta\omega = \frac{2}{\diameter_\textup{DC} ^2 + \left(2 f'_\textup{obj}\right)^2} \, \sqrt{\left(f'_\textup{obj} \delta \diameter_\textup{DC}\right)^2 + \left(\diameter_\textup{DC} \delta f'_\textup{obj} \right)^2}
 \end{equation}
-on $\diameter_\textup{DC}$ és el diametre del diafragma de camp, que hem près com $\diameter_\textup{DC} = \SI{2.5 \pm 0.1}{\centi\metre}$. Per tant, tenim que el camp d'observació val $2\omega = \SI{0.048\pm0.003}{\radian}$.
+on $\diameter_\textup{DC}$ és el diametre del diafragma de camp, que hem près com $\diameter_\textup{DC} = \SI{2.5 \pm 0.1}{\centi\metre}$. Per tant, tenim que el camp d'observació val $2\omega = \SI{0.050\pm0.003}{\radian}$.
 
 Per contra, observem que si col·loquem el diafragma just davant de l'objectiu no es perd camp d'observació però sí que es redueix la il·luminació de la imatge; cosa que s'explica tenint en compte que el diafragma limita la quantitat de llum que entra al sistema. El mateix passa si col·loquem el diafragma en la pupil·la de sortida, vist que aquesta és la imatge de la pupil·la d'entrada, que en aquest cas és l'objectiu.
 
-Finalment, canviem l'ocular per un de potència $\tilde{P}_\textup{ocu} = \SI{20.0 \pm 0.3}{\dioptre}$ i diàmetre $\tilde{\diameter}_\textup{ocu} = \SI{5.0 \pm 0.1}{\centi\metre}$. Fent ús de les fórmules de la \eqref{eq:focals} a la \eqref{eq:augments}, obtenim que en aquest cas, l'emergència de la pupil·la de sortida és $\tilde{e} = \SI{5.50 \pm 0.10}{\centi\metre}$, l'augment $\tilde{\Gamma '} = -10.4 \pm 0.6$. La col·locació d'un diafragma en les mateixes posicions que en el cas anterior exhibeix un comportament anàleg i, en particular, inserint-ne un de $\diameter_\textup{DC} = \SI{2.5 \pm 0.1}{\centi\metre}$ en el pla focal comú es té el mateix camp d'observació que en el cas anterior, vist que l'equació \eqref{eq:semicamp} no depèn de la focal de l'ocular.
+Finalment, canviem l'ocular per un de potència $\tilde{P}_\textup{ocu} = \SI{20.0 \pm 0.3}{\dioptre}$ i diàmetre $\tilde{\diameter}_\textup{ocu} = \SI{5.0 \pm 0.1}{\centi\metre}$. Fent ús de les fórmules de la \eqref{eq:focals} a la \eqref{eq:augments}, obtenim que en aquest cas, l'emergència de la pupil·la de sortida és $\tilde{e} = \SI{5.50 \pm 0.10}{\centi\metre}$, l'augment $\tilde{\Gamma '} = -10.0 \pm 0.6$. La col·locació d'un diafragma en les mateixes posicions que en el cas anterior exhibeix un comportament anàleg i, en particular, inserint-ne un de $\diameter_\textup{DC} = \SI{2.5 \pm 0.1}{\centi\metre}$ en el pla focal comú es té el mateix camp d'observació que en el cas anterior, vist que l'equació \eqref{eq:semicamp} no depèn de la focal de l'ocular.
 
 En tots dos casos la imatge a través del sistema presenta aberració cromàtica, causada pel fet que l'índex de refracció de la llum en un medi material depèn de la seva longitud d'ona, per tant les lents del sistema dispersen la llum que s'hi transmet.
 
@@ -176,13 +176,17 @@ Una ullera de Galileu és un telescopi en el qual l'objectiu és una lent conver
 
 \input{Figures/UlleraGalileu}
 
-Per a construir la ullera de Galileu hem usat un objectiu de potència $P_\textup{obj} = \SI{2.25 \pm 0.13}{\dioptre}$ i diàmetre $\diameter_\textup{obj} = \SI{6.5 \pm 0.1}{\centi\metre}$, i un ocular de potència $P_\textup{ocu} = \SI{-8.3 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{ocu} = \SI{5.5 \pm 0.1}{\centi\metre}$. Usant \eqref{eq:focals} obtenim les focals, $f'_\textup{obj} = \SI{44 \pm 3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{-12.1 \pm 0.4}{\centi\metre}$.
+Per a construir la ullera de Galileu hem usat un objectiu de potència $P_\textup{obj} = \SI{2.25 \pm 0.13}{\dioptre}$ i diàmetre $\diameter_\textup{obj} = \SI{6.5 \pm 0.1}{\centi\metre}$, i un ocular de potència $P_\textup{ocu} = \SI{-8.3 \pm 0.3}{\dioptre}$ i diàmetre $\diameter_\textup{ocu} = \SI{5.5 \pm 0.1}{\centi\metre}$. Usant \eqref{eq:focals} obtenim les focals, $f'_\textup{obj} = \SI{44 \pm 3}{\centi\metre}$ i $f'_\textup{ocu} = \SI{-12.0 \pm 0.4}{\centi\metre}$.
 
-Per a muntar el sistema hem procedit de manera similar a la secció \ref{sec:ullastro}, comprovant en quina posició les imatges observades a través del telescopi s'enfoquen, obtenint que la separació adequada entre les lents és $d = \SI{33 \pm 0.1}{\centi\metre}$, valor compatible amb la suma de les focals $f'_\textup{obj} + f'_\textup{ocu} = \SI{32 \pm 3}{\centi\metre}$.
+Per a muntar el sistema hem procedit de manera similar a la secció \ref{sec:ullastro}, comprovant en quina posició les imatges observades a través del telescopi s'enfoquen, obtenint que la separació adequada entre les lents és $d = \SI{33 \pm 0.1}{\centi\metre}$, valor compatible amb la suma de les focals $f'_\textup{obj} + \left | f'_\textup{ocu} \right | = \SI{32 \pm 3}{\centi\metre}$.
 
-Fent servir les fórmules \eqref{eq:pupilasortida} i \eqref{eq:augments} obtenim que, en aquest cas, l'emergència de la pupil·la de sortida és $e = \SI{-8.8 \pm 0.3}{\centi\metre}$ i els augments valen $\Gamma' = 3.6 \pm 0.3$. Notem que per a aquest telescopi es compleix que, efectivament, $e < 0$, per tant la imatge de la pupil·la d'entrada es forma dins del tub, i $\Gamma' > 0$, per tant la imatge no s'inverteix.
+Fent servir les fórmules \eqref{eq:pupilasortida} i \eqref{eq:augments} obtenim que, en aquest cas, l'emergència de la pupil·la de sortida és $e = \SI{-15.3 \pm 0.7}{\centi\metre}$ i els augments valen $\Gamma' = 3.7 \pm 0.3$. Notem que per a aquest telescopi es compleix que, efectivament, $e < 0$, per tant la imatge de la pupil·la d'entrada es forma dins del tub, i $\Gamma' > 0$, per tant la imatge no s'inverteix.
 
-Per calcular el camp d'observació, notem que en aquest cas tenim que $\diameter_\textup{DC} = \diameter_\textup{obj}$, vist que l'objectiu actua com a diafragma de camp; aplicant \eqref{eq:semicamp} obtenim $2\omega = \SI{0.073 \pm 0.005}{\radian}$. Evidentment, col·locant un diafragma iris de diàmetre inferior al davant de l'objectiu, limitem el camp i la il·luminació del sistema.
+Per calcular el camp d'observació, notem que en aquest cas tenim que $\diameter_\textup{DC} = \diameter_\textup{obj}$, vist que l'objectiu actua com a diafragma de camp limitant la quantitat de raigs que entren al sistema. Suposant que l'ull de l'observador es troba el més a prop possible de l'ocular i aplicant que
+\begin{equation} \label{eq:semicampgalileo}
+  \omega = \frac{1}{\Gamma'}\arctan{\frac{\diameter_\textup{PS}}{2\,\left |e\right |}}}
+\end{equation}
+tenint en compte que el diàmetre de la pupil·la de sortida ve donat per $\diameter_\textup{PS} = \diameter_\textup{DC}/\left |\Gamma'\right|$, obtenim que el camp d'observació és $2\omega = \SI{0.032 \pm 0.006}{\radian}$. Evidentment, col·locant un diafragma iris de diàmetre inferior al davant de l'objectiu, limitem el camp i la il·luminació del sistema.
 
 Finalment, cal remarcar que a les imatges a través d'aquest telescopi presenten una petita aberració esfèrica en els punts imatge allunyats del centre de la lent.
 
@@ -217,7 +221,7 @@ Aplicant l'equació de les lents, podem calcular la distància entre l'objectiu 
 \begin{equation}\label{eq:lents}
   -\frac{1}{s_\textup{obj}} + \frac{1}{s'_\textup{obj}} = \frac{1}{f'_\textup{obj}} \Rightarrow s'_\textup{obj} = \frac{s_\textup{obj}\, f'_\textup{obj}}{s_\textup{obj} + f'_\textup{obj}}
 \end{equation}
-i obtenim que $s'_\textup{obj} = \SI{87 \pm 10}{\centi\metre}$. Així doncs, la distància entre l'objectiu i l'ocular ve donada per $d_{\textup{obj} \rightarrow \textup{dia}} = s'_\textup{obj} + f'_\textup{ocu} = \SI{92 \pm 10}{\centi\metre}$, valor compatible amb l'obtingut amb la cinta mètrica.
+i obtenim que $s'_\textup{obj} = \SI{87 \pm 10}{\centi\metre}$. Així doncs, la distància entre l'objectiu i l'ocular ve donada per $d_{\textup{obj} \rightarrow \textup{ocu}} = s'_\textup{obj} + f'_\textup{ocu} = \SI{92 \pm 10}{\centi\metre}$, valor compatible amb l'obtingut amb la cinta mètrica.
 
 Així doncs, tenim que la longitud òptica del tub, que no és més que la distància entre el focus imatge de l'objectiu i el focus objecte de l'ocular, vindrà donada per
 \begin{equation}\label{eq:longtub}
@@ -235,13 +239,23 @@ i obtenim que $\beta'_\textup{obj} = -7.7 \pm 1.0$. Així mateix, calculem l'aug
 \end{equation}
 que resulta $\Gamma' = -39 \pm 5$.
 
-L'emergència de la pupil·la de sortida vindrà donada per \eqref{eq:pupilasortida} i val $e = \SI{7.25 \pm 0.15}{\centi\metre}$.
+L'emergència de la pupil·la de sortida vindrà donada per l'equació de les lents segons
+\begin{equation} \label{eq:emergenciamicro}
+  \frac{1}{d_{\textup{obj} \rightarrow \textup{ocu}}} + \frac{1}{e} = \frac{1}{f'_\textup{ocu}} \Rightarrow e = \frac{f'_\textup{ocu} \, d_{\textup{obj} \rightarrow \textup{ocu}}}{f'_\textup{ocu} + d_{\textup{obj} \rightarrow \textup{ocu}}}
+\end{equation}
+i val $e = \SI{4.74 \pm 0.04}{\centi\metre}$.
 
 Cal remarcar que s'ha observat una notable aberració esfèrica en els punts de l'espai imatge més allunyats de l'eix òptic. Així mateix, la coloració de la imatge resultava estranya, fet que s'atribueix a la font lumínica.
 
-Finalment, s'ha repetit el muntatge usant un altre ocular de potència $\tilde{P}_\textup{ocu} = \SI{9.5 \pm 0.3}{\dioptre}$ i diàmetre $\tilde{\diameter}_\textup{ocu} = \SI{5.5 \pm 0.1}{\centi\metre}$. La focal calculada segons \eqref{eq:focals} resulta $\tilde{f'}_\textup{ocu} = \SI{10.5 \pm 0.3}{\centi\metre}$. La distància entre l'objectiu i l'ocular és de $\tilde{d}_{\textup{obj} \rightarrow \textup{ocu}} = \SI{90.6 \pm 0.1}{\centi\metre}$.
+Amb les dades donades, es pot estimar el valor real de la potència de l'objectiu, coneguda la focal de l'ocular i la distància entre les lents. Emprant l'equació de les lents, veiem que
+\begin{equation}\label{eq:estfocal}
+  P_\textup{obj}^\textup{teo} = -\frac{1}{s_\textup{obj}} + \frac{1}{d_{\textup{obj} \rightarrow \textup{ocu}}^\textup{exp} - f'_\textup{ocu}}
+\end{equation}
+i obtenim que $P_\textup{obj}^\textup{teo} = \SI{10.00 \pm 0.08}{\dioptre}$, valor compatible tant amb la potència mesurada amb el frontofocòmetre com la nominal.
 
-En aquest cas obtenim que la longitud òptica del tub és $\tilde{t} = \SI{69.6 \pm 0.4}{\centi\metre}$, l'augment lateral de l'objectiu es manté constant, l'augment angular de l'ocular és $\tilde{\Gamma}'_\textup{ocu} = 2.38 \pm 0.07$, l'augment angular total del sistema $\tilde{\Gamma}' = -15.2 \pm 0.6$ i l'emergència de la pupil·la de sortida $e = \SI{21.0 \pm 1.0}{\centi\metre}$.
+Finalment, s'ha repetit el muntatge usant un altre ocular de potència $\tilde{P}_\textup{ocu}^\textup{exp} = \SI{9.5 \pm 0.3}{\dioptre}$ segons el frontofocòmetre i potència nominal $P_\textup{ocu} = \SI{10.0 \pm 0.1}{\dioptre}$, de diàmetre $\tilde{\diameter}_\textup{ocu} = \SI{5.5 \pm 0.1}{\centi\metre}$. La focal nominal calculada segons \eqref{eq:focals} resulta $\tilde{f'}_\textup{ocu} = \SI{10.0 \pm 0.1}{\centi\metre}$. La distància entre l'objectiu i l'ocular mesurat amb una cinta mètrica és de $\tilde{d}_{\textup{obj} \rightarrow \textup{ocu}}^\textup{exp} = \SI{90.6 \pm 0.1}{\centi\metre}$.
+
+En aquest cas obtenim, doncs, que  $\tilde{d}_{\textup{obj} \rightarrow \textup{ocu}} = \tilde{s'}_\textup{obj} + \tilde{f'}_\textup{ocu} = \SI{97 \pm 10}{\centi\metre}$, valor que concorda amb el mesurat amb la cinta mètrica. La longitud òptica del tub és $\tilde{t} = \SI{77 \pm 10}{\centi\metre}$, l'augment lateral de l'objectiu es manté constant, l'augment angular de l'ocular és $\tilde{\Gamma}'_\textup{ocu} = 2.50 \pm 0.02$, d'on l'augment angular total del sistema és $\tilde{\Gamma}' = -19.3 \pm 0.3$ i l'emergència de la pupil·la de sortida $\tilde{e} = \SI{9.07 \pm 0.12}{\centi\metre}$.
 
 Notem que ara s'obté aproximadament la meitat d'augments que en el cas anterior, a canvi de tenir menys aberració esfèrica.
 
