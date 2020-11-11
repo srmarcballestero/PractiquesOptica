@@ -35,6 +35,7 @@
 
 \sisetup{separate-uncertainty=true, exponent-product=\cdot}
 \DeclareSIUnit\dioptre{D}
+\DeclareSIUnit\arbitrary{u.a.}
 \decimalpoint
 
 
@@ -127,8 +128,40 @@ En aquest apartat ens proposem estudiar el comportament d'un feix de llum natura
 
 Fixat el polaritador, s'han près mesures d'intensitat modificant l'angle de l'eix de l'analitzador $\beta$ en intervals de $\SI{5 \pm 1}{\degree}$, els punts experimentals associats a les quals es representen en la figura \ref{fig:Lineal_I(b)}.
 
-
 \input{Figures/Lineal_I(b)}
+
+La llei de Malus relaciona, en un sistema com aquest, la intensitat detectada vers l'angle relatiu entre els eixos dels polaritzadors, segons
+\begin{equation} \label{eq:malus}
+ I = I_0 \, \cos^2{\alpha}
+\end{equation}
+on $I_0$ és la intensitat abans de transmetre's pels polaritzadors i $\alpha$ l'angle relatiu entre els eixos del polaritzador i l'analitzador.
+
+Per tal d'establir l'origen de fases i el paràmetre d'intensitat màxima, s'han mesurat els punts on el valor marcat pel díode és extrem\footnote{Malgrat es podrien haver fet servir els valors obtinguts prèviament, s'ha repetit la mesura per evitar l'error de discretització associat a prendre dades en intervals de \SI{5 \pm 1}{\degree}.}, obtenint que
+\begin{align*}
+ \left[\beta_\textup{max}, I_\textup{max}\right] & = \left[\SI{54\pm 1}{\degree}, \SI{7.7 \pm 0.1}{\arbitrary}\right]   \\
+ \left[\beta_\textup{min}, I_\textup{min}\right] & = \left[\SI{144\pm 1}{\degree}, \SI{0.0 \pm 0.1}{\arbitrary}\right]. \\
+\end{align*}
+Notem que es compleix que $\left | \beta_\textup{max} - \beta_\textup{min} \right | = \SI{90 \pm 1}{\degree}$, la qual cosa ens indica que les mesures realitzades s'ajusten a la predicció teòrica.
+
+Prendrem, doncs, com a origen de fases l'angle per al qual la intensitat és máxima, amb la qual cosa tindrem que $\left[\alpha_0, I_0\right] = \left[\SI{54\pm 1}{\degree}, \SI{7.7 \pm 0.1}{\arbitrary}\right]$. Amb això, podem calcular l'angle relatiu entre el polaritzador i l'analitzador com
+\begin{equation} \label{eq:transformaAngle}
+ \alpha := \beta - \alpha_0 .
+\end{equation}
+Amb aquesta relació s'ha ajustat la corba que se superposa als punts de la figura \ref{fig:Lineal_I(b)}, que, vist que talla tots els punts experimentals i les corresponents barres d'error, ens indica que les dades preses s'ajusten al model teòric que prediu \eqref{eq:malus}.
+
+\input{Figures/Lineal_Malus}
+
+Encara més, s'han representat els punts $I\left(\cos^2{\alpha}\right)$ i s'han ajustat a una recta de regressió de la forma $I = I_0'\, \cos^2{\alpha} + I_\textup{r}$, tot representat a la figura \ref{fig:Lineal_Malus}. Els paràmetres obtinguts es presenten a la taula \ref{tab:Lineal_Ajust}.
+
+\input{Figures/Lineal_Ajust}
+
+Primerament, observem que els valors de la intensitat màxima obtinguts experimentalment i a partir de l'ajust satisfan que
+\begin{equation*}
+   \SI{0.04}{\arbirtary} = \left |I_0 - I_0' \right | \leq \sqrt{\left(\delta I_0\right)^2 + \left(\delta I_0'\right)^2} = \SI{0.11}{\arbitrary}
+\end{equation*}
+i, per tant, són compatibles.
+
+D'altra banda, l'ordenada a l'origen de l'ajust $I_\textup{r}$ ens informa de la intensistat residual detectada pel díode, que correspon a la radiació lumínica de fons del laboratori, que, malgrat prendre's les dades en condicions de foscor, no es pot anul·lar totalment. Tot i així, notem que el valor de $I_\textup{r}$ és clarament compatible amb zero.
 
 \appendix
 \newpage

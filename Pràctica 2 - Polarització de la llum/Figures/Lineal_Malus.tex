@@ -7,21 +7,21 @@
         enlarge x limits=0.10,
         enlarge y limits=0.10,
         %minor tick num = 3,
-        xlabel={$\beta$ (\si{\degree})},
+        xlabel={$\cos^2{\left(\alpha/\si{\degree}\right)}$ ($-$)},
         ylabel={$I$ (\si{\arbitrary})},
-        xtick = {0, 60,...,360},
+        xtick = {0, 0.1,...,1.1},
         %scaled x tick = {real:3.141516},
         ytick={0,2,...,8},
         %xticklabels={$0$, $\frac{1}{4}\pi$, $\frac{1}{2}\pi$, $\frac{3}{4}\pi$, $\pi$, $\frac{5}{4}\pi$, $\frac{3}{2}\pi$, $\frac{7}{4}\pi$, $2\pi$},
-        minor xtick={-30,-20,...,390},
+        minor xtick={-0.1,-0.075,...,1.1},
         minor ytick={-1,-0.75,...,9},
-        xmin = 0, xmax = 360, extra x ticks ={},
+        xmin = 0, xmax = 1, extra x ticks ={},
         ymin = 0, ymax = 8,
         %extra y ticks ={4.18},
         %ymode = log,
         %log y ticks with fixed point,
         legend image post style={scale=0.4},
-        legend pos=south west,
+        legend pos=north west,
         /pgf/number format/.cd,
         1000 sep={},
         %xticklabel style={xshift=-2pt},
@@ -29,7 +29,7 @@
         /pgf/number format/.cd,
         fixed,
         fixed zerofill,
-        precision=0,
+        precision=1,
       },
         y tick label style={
         /pgf/number format/.cd,
@@ -38,18 +38,18 @@
         precision=0
       },
     ]
-    \addplot[samples=200,domain=-5:365, color=red, thick] {7.7*(cos(((x)-54)))^2};
+    \addplot[samples=200,domain=-0.05:1.05, color=red, thick] {7.66*(x)+0.0};
     %\addplot[samples=200,domain=0:8000, color=orange] {0.00606404*(x)+22.434048};
-    \addlegendentry{\footnotesize $I = I_0 \,\cos^2{\left(\beta - \alpha_0\right)}$}
+    \addlegendentry{\footnotesize $I = 7.66 \,\cos^2{\alpha} + 0.0$}
     %\addlegendentry{\tiny $T = 0.006064 \, Q + 22.43$, $R^2 = 0.99990$}
-    %\addlegendimage{legend image with text=}
-    %\addlegendentry{\footnotesize $R^2=0.9993$}
+    \addlegendimage{legend image with text=}
+    \addlegendentry{\footnotesize $R^2=0.998$}
     \addplot[scatter, only marks, scatter/classes={a={mark=*, black, scale=1}, a={mark=*, black, scale=0.65}}, scatter src=explicit symbolic
-        ] plot [error bars/.cd, y dir = both, y explicit]table[x = b, y = I, x error = db, y error = dI, meta=class]{Dades/Lineal_I(b).csv};
+        ] plot [error bars/.cd, y dir = both, y explicit]table[x = cos, y = I, x error = dcos, y error = dI, meta=class]{Dades/Lineal_Malus.csv};
     %\addlegendentry{\footnotesize $I(V)$}
     %\addlegendentry{\footnotesize $I_\textup{teo}(V)$}
     \end{axis}
 \end{tikzpicture}
-\captionof{figure}{Intensitat detectada pel díode en funció de l'angle de l'escala de l'analitzador, amb la relació teòrica de la llei de Malus superposada.}
-\label{fig:Lineal_I(b)}
+\captionof{figure}{Intensitat detectada pel díode en funció de cosinus al quadrat de l'angle relatiu entre els eixos dels polaritzadors, amb el corresponent ajust lineal.}
+\label{fig:Lineal_Malus}
 \end{figure}
