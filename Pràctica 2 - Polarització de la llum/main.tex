@@ -220,9 +220,33 @@ S'han près dades de la intensitat detectada pel diode en funció de l'angle de 
 
 Malgrat esperaríem que la llei de variació de la intensitat vers l'angle de l'analitzador fos constant, observem que els punts oscil·len lleugerament. De fet, la mitjana i la desviació estàndar de les intensitats per cada color, calculades segons \eqref{est:mitjana} i \eqref{est:stdev} respectivament, són
 \begin{align*}
- \left \langle I_\textup{G} \right \rangle & = \SI{3.46 \pm 0.04}{\arbitrary} & \sigma_{I_\textup{G}} & = \SI{0.27}{\arbitrary} \\
- \left \langle I_\textup{R} \right \rangle & = \SI{1.43 \pm 0.05}{\arbitrary} & \sigma_{I_\textup{R}} & = \SI{0.33}{\arbitrary} \\
+ \left \langle I_\textup{G} \right \rangle = \SI{3.46 \pm 0.04}{\arbitrary} &\hspace{3mm} \sigma_{I_\textup{G}} = \SI{0.27}{\arbitrary} \\
+ \left \langle I_\textup{R} \right \rangle = \SI{1.43 \pm 0.05}{\arbitrary} &\hspace{3mm} \sigma_{I_\textup{R}} = \SI{0.33}{\arbitrary}
 \end{align*}
+i, en efecte, les desviacions estàndard dels punts experimentals són significatives. Això es deu, més enllà dels errors aleatoris i sistemàtics intrínsecs al sistema experimental, a que el comportament del material birefriengent que forma la làmina quart d'ona (en particular els seus índexs de refracció) depenen de la longitud de l'ona incident, és a dir del seu color. És per això que en el cas del color verd la desviació estàndard de les intensitats és lleugerament inferior a del color vermell, i en cap dels casos la llum que surt del sistema té una polarització perfectament circular.
+
+\subsection{Ulleres de cinema 3D} \label{sec:ulleres3D}
+Per acabar la pràctica, analitzem el comportament del feix de llum polaritzada circularment quan travessa els oculars d'unes ulleres de cinema en 3D. El sistema usat en aquest àmbit per aconseguir l'efecte visual de profunditat consisteix en gravar amb dos càmeres diferents els punts de vista corresponents a cada ull i projectar-los amb polaritzacions circulars de sentits oposats, de manera que cada ocular de les ulleres de l'espectador tingui un polaritzador circular\footnote{Un sistema format per una làmina birefringent i un polaritzador lineal} del sentit que correspongui. Així doncs, per simular aquestes condicions, s'ha substituït l'analitzador del sistema experimental per cadascun dels oculars de les ulleres.
+
+Definim la transmitància òptica com
+\begin{equation} \label{eq:transmitancia}
+  \tau = \frac{I}{I_0}
+\end{equation}
+on $I_0$ és la intensitat del raig incident i $I$ la intensitat detectada.
+
+Fent servir el superíndex $\textup{l}$ per a l'ocular esquerre i $\textup{r}$ per al dret, tenim que les intensitats detectades intercalant cada ocular per a cada color de la llum són
+\begin{align*}
+  I_\textup{G}^\textup{l} = \SI{6.3 \pm 0.1}{\arbitrary} &\hspace{3mm}
+  I_\textup{G}^\textup{r} = \SI{0.1 \pm 0.1}{\arbitrary} \\
+  I_\textup{R}^\textup{l} = \SI{2.5 \pm 0.1}{\arbitrary} &\hspace{3mm}
+  I_\textup{R}^\textup{r} = \SI{0.2 \pm 0.1}{\arbitrary}
+\end{align*}
+
+Prenent $I_0 = I_\textup{G} = \SI{8.3 \pm 0.1}{\arbitrary}$ per a la llum de color verd i $I_0 = I_\textup{R} = \SI{3.5 \pm 0.1}{\arbitrary}$ per a la de color vermell, obtenim les transmitàncies de cada ocular en cada cas
+\begin{align*}
+  
+\end{align*}
+
 \appendix
 \newpage
 \input{apendix}
