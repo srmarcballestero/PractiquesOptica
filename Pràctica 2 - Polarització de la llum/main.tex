@@ -36,6 +36,7 @@
 \sisetup{separate-uncertainty=true, exponent-product=\cdot}
 \DeclareSIUnit\dioptre{D}
 \DeclareSIUnit\arbitrary{u.a.}
+\DeclareSIUnit\percent{\%}
 \decimalpoint
 
 
@@ -244,8 +245,13 @@ Fent servir el superíndex $\textup{l}$ per a l'ocular esquerre i $\textup{r}$ p
 
 Prenent $I_0 = I_\textup{G} = \SI{8.3 \pm 0.1}{\arbitrary}$ per a la llum de color verd i $I_0 = I_\textup{R} = \SI{3.5 \pm 0.1}{\arbitrary}$ per a la de color vermell, obtenim les transmitàncies de cada ocular en cada cas
 \begin{align*}
-  
+  \tau_\textup{G}^\textup{l} &= \num{0.759 \pm 0.015} = \SI{75.9 \pm 1.5}{\percent} &\hspace{3mm}
+  \tau_\textup{G}^\textup{r} &= \num{0.012 \pm 0.012} = \SI{1.2 \pm 1.2}{\percent} \\
+  \tau_\textup{R}^\textup{l} &= \num{0.71 \pm 0.04} = \SI{71 \pm 4}{\percent} &\hspace{3mm}
+  \tau_\textup{R}^\textup{r} &= \num{0.06 \pm 0.03} = \SI{6 \pm 3}{\percent}
 \end{align*}
+
+i veiem que en tots dos casos l'ocular dret té una transmitància pràcticament nul·la (de fet ambdós valors són compatibles amb zero) i l'ocular esquerre transmet entre un $70\%$ i un $80\%$ de la llum que hi incideix. Això es deu, efectivament, al fet que el disseny de les ulleres és tal que els oculars siguin polaritzadors circulars de sentits oposats.
 
 \appendix
 \newpage
