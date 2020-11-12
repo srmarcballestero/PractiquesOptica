@@ -38,15 +38,22 @@
         precision=0
       },
     ]
-    \addplot[samples=200,domain=-5:365, color=red, very thick] {3.46};
-    \addplot[samples=200,domain=-5:365, color=red, thick, dashed] {3.46+0.27};
-    \addplot[samples=200,domain=-5:365, color=red, thick, dashed] {3.46-0.27};
+    \addplot[samples=200,domain=-5:365, color=olive, very thick] {3.46};
+    \addlegendentry{\footnotesize $\left \langle I_\textup{G} \right \rangle$};
+    \addplot[samples=200,domain=-5:365, color=red, very thick] {1.43};
+    \addlegendentry{\footnotesize $\left \langle I_\textup{R} \right \rangle$};
+
+    \addplot[samples=200,domain=-5:365, color=olive, thick, dashed] {3.46+0.27};
+    \addplot[samples=200,domain=-5:365, color=olive, thick, dashed] {3.46-0.27};
+
+    \addplot[samples=200,domain=-5:365, color=red, thick, dashed] {1.43+0.33};
+    \addplot[samples=200,domain=-5:365, color=red, thick, dashed] {1.43-0.33};
     %\addplot[samples=200,domain=0:8000, color=orange] {0.00606404*(x)+22.434048};
     %\addlegendentry{\footnotesize $I = I_0 \,\cos^2{\left(\beta - \alpha_0\right)}$}
     %\addlegendentry{\tiny $T = 0.006064 \, Q + 22.43$, $R^2 = 0.99990$}
     %\addlegendimage{legend image with text=}
     %\addlegendentry{\footnotesize $R^2=0.9993$}
-    \addplot[scatter, only marks, scatter/classes={a={mark=*, red, scale=0.65}, b={mark=*, green, scale=0.65}}, scatter src=explicit symbolic
+    \addplot[scatter, only marks, scatter/classes={a={mark=*, olive, scale=0.65}, b={mark=*, red, scale=0.65}}, scatter src=explicit symbolic
         ] plot [error bars/.cd, y dir = both, y explicit]table[x = b, y = I, x error = db, y error = dI, meta=class]{Dades/Circular_I(b).csv};
     %\addlegendentry{\footnotesize $I(V)$}
     %\addlegendentry{\footnotesize $I_\textup{teo}(V)$}
