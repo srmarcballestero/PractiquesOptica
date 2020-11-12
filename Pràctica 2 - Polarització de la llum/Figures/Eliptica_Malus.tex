@@ -1,0 +1,55 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.85]
+    \begin{axis}[
+        width = 12cm,
+        height = 7cm,
+        enlarge x limits=0.10,
+        enlarge y limits=0.10,
+        %minor tick num = 3,
+        xlabel={$\cos^2{\left(\alpha/\si{\degree}\right)}$ ($-$)},
+        ylabel={$I$ (\si{\arbitrary})},
+        xtick = {0, 0.1,...,1.1},
+        %scaled x tick = {real:3.141516},
+        ytick={0,2,...,8},
+        %xticklabels={$0$, $\frac{1}{4}\pi$, $\frac{1}{2}\pi$, $\frac{3}{4}\pi$, $\pi$, $\frac{5}{4}\pi$, $\frac{3}{2}\pi$, $\frac{7}{4}\pi$, $2\pi$},
+        minor xtick={-0.1,-0.075,...,1.1},
+        minor ytick={-1,-0.75,...,9},
+        xmin = 0, xmax = 1, extra x ticks ={},
+        ymin = 0, ymax = 8,
+        %extra y ticks ={4.18},
+        %ymode = log,
+        %log y ticks with fixed point,
+        legend image post style={scale=0.4},
+        legend pos=north west,
+        /pgf/number format/.cd,
+        1000 sep={},
+        %xticklabel style={xshift=-2pt},
+        x tick label style={
+        /pgf/number format/.cd,
+        fixed,
+        fixed zerofill,
+        precision=1,
+      },
+        y tick label style={
+        /pgf/number format/.cd,
+        fixed,
+        fixed zerofill,
+        precision=0
+      },
+    ]
+    \addplot[samples=200,domain=-0.05:1.05, color=red, thick] {4.55*(x)+1.22};
+    %\addplot[samples=200,domain=0:8000, color=orange] {0.00606404*(x)+22.434048};
+    \addlegendentry{\footnotesize $I = 4.55 \,\cos^2{\alpha} + 1.22$}
+    %\addlegendentry{\tiny $T = 0.006064 \, Q + 22.43$, $R^2 = 0.99990$}
+    \addlegendimage{legend image with text=}
+    \addlegendentry{\footnotesize $R^2=0.996$}
+    \addplot[scatter, only marks, scatter/classes={a={mark=*, black, scale=1}, a={mark=*, black, scale=0.65}}, scatter src=explicit symbolic
+        ] plot [error bars/.cd, y dir = both, y explicit]table[x = cos, y = I, x error = dcos, y error = dI, meta=class]{Dades/Eliptica_Malus.csv};
+    %\addlegendentry{\footnotesize $I(V)$}
+    %\addlegendentry{\footnotesize $I_\textup{teo}(V)$}
+    \end{axis}
+\end{tikzpicture}
+\captionof{figure}{Intensitat detectada pel díode en funció de cosinus al quadrat de l'angle entre l'eix de l'analitzador i l'eix major de l'el·lipse de polarització.}
+\label{fig:Eliptica_Malus}
+\end{figure}
