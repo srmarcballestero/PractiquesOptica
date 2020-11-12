@@ -157,7 +157,7 @@ Encara més, s'han representat els punts $I\left(\cos^2{\alpha}\right)$ i s'han 
 
 Primerament, observem que els valors de la intensitat màxima obtinguts experimentalment i a partir de l'ajust satisfan que
 \begin{equation*}
-   \SI{0.04}{\arbitrary} = \left |I_0 - I_0' \right | \leq \sqrt{\left(\delta I_0\right)^2 + \left(\delta I_0'\right)^2} = \SI{0.11}{\arbitrary}
+ \SI{0.04}{\arbitrary} = \left |I_0 - I_0' \right | \leq \sqrt{\left(\delta I_0\right)^2 + \left(\delta I_0'\right)^2} = \SI{0.11}{\arbitrary}
 \end{equation*}
 i, per tant, són compatibles.
 
@@ -173,19 +173,19 @@ S'han près valors de la intensitat marcada per l'amperímetre en intervals de $
 
 Sigui $\phi$ l'angle entre l'eix de l'analitzador i l'eix major de l'el·lipse de polarització. Per calcular la intensitat de la llum que arriba al diode, apliquem la llei de Malus a cadascuna de les components perpendiculars de la llum polaritzada el·lípticament, d'on
 \begin{equation}\label{eq:malusEliptica}
-  I\left(\phi\right) = A_2^2\, \cos^2{\phi} + A_1^2\, \sin^2{\phi} = \left(A_2^2 - A_1^2\right)\, \cos^2{\phi} + A_1^2
+ I\left(\phi\right) = A_2^2\, \cos^2{\phi} + A_1^2\, \sin^2{\phi} = \left(A_2^2 - A_1^2\right)\, \cos^2{\phi} + A_1^2
 \end{equation}
 on $A_1, A_2$ són els semieixos de l'el·lipse de polarització.
 
 Per fixar l'origen de fases i trobar els semieixos de l'el·lipse, s'han mesurat els punts on la intensitat és extema, obtenint
 \begin{align*}
-  \left[\beta_\textup{max}, I_\textup{max}\right] & = \left[\SI{75\pm 1}{\degree}, \SI{5.8 \pm 0.1}{\arbitrary}\right]   \\
-  \left[\beta_\textup{min}, I_\textup{min}\right] & = \left[\SI{165\pm 1}{\degree}, \SI{1.2 \pm 0.1}{\arbitrary}\right]. \\
+ \left[\beta_\textup{max}, I_\textup{max}\right] & = \left[\SI{75\pm 1}{\degree}, \SI{5.8 \pm 0.1}{\arbitrary}\right]   \\
+ \left[\beta_\textup{min}, I_\textup{min}\right] & = \left[\SI{165\pm 1}{\degree}, \SI{1.2 \pm 0.1}{\arbitrary}\right]. \\
 \end{align*}
 
 Així doncs, l'origen de fases correspon al punt pel qual la intensitat és màxima, $\phi_0 = \SI{75 \pm 1}{\degree}$, i introduint a \eqref{eq:malusEliptica} els valors mesurats, obtenim les longituds dels semieixos $A_1 = \SI{1.10 \pm 0.05}{\arbitrary}$ i $A_2 = \SI{2.41 \pm 0.02}{\arbitrary}$. L'angle $\phi$ l'obtindrem fent la transformació
 \begin{equation} \label{eq:transformaPhi}
-  \phi := \beta - \phi_0
+ \phi := \beta - \phi_0
 \end{equation}
 on $\beta$ és l'angle mesurat en l'escala de l'analitzador.
 
@@ -193,7 +193,7 @@ Amb aquests valors s'ha ajustat la corba teòrica superposada als punts de la fi
 
 Encara més, podem calcular l'excentricitat de l'el·lipse segons
 \begin{equation} \label{eq:excentricitat}
-  \varepsilon = \sqrt{1 - \frac{A_1^2}{A_2^2}}
+ \varepsilon = \sqrt{1 - \frac{A_1^2}{A_2^2}}
 \end{equation}
 d'on s'obté que $\varepsilon = \num{0.891 \pm 0.010}$.
 
@@ -205,15 +205,24 @@ Finalment, s'han representat els punts $I\left(\cos^2{\phi}\right)$ a la figura 
 
 Observem que es compleix que
 \begin{align*}
-   \SI{0.05}{\arbitrary} = \left |\left(A_2^2 - A_1^2\right) - \left(A_2^2 - A_1^2\right)' \right | &\leq \sqrt{\left[\delta \left(A_2^2 - A_1^2\right)\right]^2 + \left[\delta \left(A_2^2 - A_1^2\right)'\right]^2} = \SI{0.15}{\arbitrary} \\
-      \SI{0.02}{\arbitrary} = \left |A_1^2 - \left(A_1^2\right)' \right | &\leq \sqrt{\left[\delta A_1^2\right]^2 + \left[\delta \left(A_1^2\right)'\right]^2} = \SI{0.10}{\arbitrary}
+ \SI{0.05}{\arbitrary} = \left |\left(A_2^2 - A_1^2\right) - \left(A_2^2 - A_1^2\right)' \right | & \leq \sqrt{\left[\delta \left(A_2^2 - A_1^2\right)\right]^2 + \left[\delta \left(A_2^2 - A_1^2\right)'\right]^2} = \SI{0.15}{\arbitrary} \\
+ \SI{0.02}{\arbitrary} = \left |A_1^2 - \left(A_1^2\right)' \right |                              & \leq \sqrt{\left[\delta A_1^2\right]^2 + \left[\delta \left(A_1^2\right)'\right]^2} = \SI{0.10}{\arbitrary}
 \end{align*}
 i per tant els valors obtinguts mitjançant l'ajust són compatibles amb els predits amb l'equació \eqref{eq:malusEliptica}.
 
 \section{Polartizació circular} \label{sec:polCircular}
 
+En aquest últim apartat estudiem el comportament de la llum quan es polaritza circularment. Aquest estat de polarització s'ha aconseguit col·locant la làmina quart d'ona de manera que la direcció de polarització de la llum lineal que hi incideix formi un angle de $\SI{45}{\degree}$ amb els eixos de la làmina. Empíricament, s'ha determinat que l'angle adequat per obtenir llum polaritzada circularment és de $\SI{47\pm 1}{\degree}$ en l'escala de la làmina.
+
 \input{Figures/Circular_I(b)}
 
+S'han près dades de la intensitat detectada pel diode en funció de l'angle de l'escala de l'analitzador en intervals de $\SI{10 \pm 1}{\degree}$, per a llum de color verd i llum de color vermell, tot representant els punts experimentals en la figura \ref{fig:Circular_I(b)}.
+
+Malgrat esperaríem que la llei de variació de la intensitat vers l'angle de l'analitzador fos constant, observem que els punts oscil·len lleugerament. De fet, la mitjana i la desviació estàndar de les intensitats per cada color, calculades segons \eqref{est:mitjana} i \eqref{est:stdev} respectivament, són
+\begin{align*}
+ \left \langle I_\textup{G} \right \rangle & = \SI{3.46 \pm 0.04}{\arbitrary} & \sigma_{I_\textup{G}} & = \SI{0.27}{\arbitrary} \\
+ \left \langle I_\textup{R} \right \rangle & = \SI{1.43 \pm 0.05}{\arbitrary} & \sigma_{I_\textup{R}} & = \SI{0.33}{\arbitrary} \\
+\end{align*}
 \appendix
 \newpage
 \input{apendix}
