@@ -6,15 +6,15 @@
         enlarge y limits=0.10,
         %minor tick num = 3,
         xlabel={$\theta_\textup{i}$ (\si{\degree})},
-        ylabel={$\tan{\left(\alpha/\si{\degree}\right)}$},
+        ylabel={$Y$ ($-$)},
         xtick = {30, 40,...,70},
         %scaled x tick = {real:3.141516},
-        ytick={-0.4,-0.2,...,0.6},
+        ytick={-0.2,0,...,0.6},
         %xticklabels={$0$, $\frac{1}{4}\pi$, $\frac{1}{2}\pi$, $\frac{3}{4}\pi$, $\pi$, $\frac{5}{4}\pi$, $\frac{3}{2}\pi$, $\frac{7}{4}\pi$, $2\pi$},
         minor xtick={20,22.5,...,80},
         minor ytick={-0.5,-0.45,...,0.7},
         xmin = 30, xmax = 70, extra x ticks ={},
-        ymin = -0.4, ymax = 0.6,
+        ymin = 0, ymax = 0.6,
         %extra y ticks ={4.18},
         %ymode = log,
         %log y ticks with fixed point,
@@ -37,17 +37,17 @@
       },
     ]
 
-    \addplot[samples=200,domain=33:70, color=red] {-0.0258*(x)+1.46};
-    \addlegendentry{\footnotesize $\tan{\left(\alpha/\si{\degree}\right)} = -0.0258 \,\theta_\textup{i} + 1.46$}
     %\addlegendentry{\tiny $T = 0.006064 \, Q + 22.43$, $R^2 = 0.99990$}
     %\addlegendimage{legend image with text=}
     %\addlegendentry{\footnotesize $R^2=0.9993$}
-    \addplot[scatter, only marks, scatter/classes={a={mark=*, black, scale=1}, b={mark=o, blue, scale=1}}, scatter src=explicit symbolic
+    \addplot[scatter, only marks, scatter/classes={a={mark=*, black, scale=1}, b={mark=*, black, scale=0}}, scatter src=explicit symbolic
         ] plot []table[x = t, y = tana, x error = dt, y error = dtana, meta=class]{Dades/Alpha_Theta.csv};
-    \addlegendentry{\footnotesize $\left | \tan{\left(\alpha/\si{\degree}\right)} \right |$}
-    \addlegendentry{\footnotesize $\tan{\left(\alpha/\si{\degree}\right)}$}
+    \addplot[scatter, only marks, scatter/classes={a={mark=*, blue, scale=1}}, scatter src=explicit symbolic
+        ] plot []table[x = t, y = tana, x error = dt, y error = dtana, meta=class]{Dades/EsEp_Theta.csv};
+    \addlegendentry{\footnotesize $ Y = \left | \tan{\left(\alpha/\si{\degree}\right)} \right |$}
+    \addlegendentry{\footnotesize $ Y = \left| {E_\shortparallel^\textup{r}}/{E_\perp^\textup{r}} \right |$}
     \end{axis}
 \end{tikzpicture}
-\captionof{figure}{Tangent de l'angle de l'eix del polaritzador en funció de l'angle d'incidència, amb el corresponent ajust lineal.}
-\label{fig:IncidenciaPolaritzador}
+\captionof{figure}{Tangent de l'angle de l'eix de l'analitzador (sèrie negra) i quocient entre les amplituds dels components del camp elèctric reflectit (sèrie blava), en funció de l'angle d'incidència.}
+\label{fig:EsEp}
 \end{figure}

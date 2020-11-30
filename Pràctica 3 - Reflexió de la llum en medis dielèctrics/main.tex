@@ -116,8 +116,6 @@
 \begin{document}
 \maketitle
 
-\vspace{3mm}
-
 \begin{multicols}{2}
 
  \section{Determinació visual de l'angle de Brewster} \label{sec:BrewsterVisual}
@@ -156,11 +154,33 @@
 
  \input{Figures/Taula_IncidenciaPolaritzador}
 
- Així doncs, s'han representat els punts experimentals $\left | \tan{\left(\alpha / \si{\degree}\right)}\right |$ en funció de l'angle d'incidència en la figura \ref{fig:IncidenciaPolaritzador}. A més a més, s'ha realitzat l'ajust lineal\footnote{Per a l'ajust, s'ha obviat el valor absolut i s'ha tingut en compte el signe que prèn la tangent en funció de l'angle d'incidència.} $\tan{\left(\alpha/\si{\degree}\right)}\left(\theta_\textup{i}\right)$, els paràmetres del qual es detallen en la taula \ref{fig:AjustPolaritzador}.
+ Així doncs, s'han representat els punts experimentals $\left | \tan{\left(\alpha / \si{\degree}\right)}\right |$ en funció de l'angle d'incidència en la figura \ref{fig:IncidenciaPolaritzador}. A més a més, s'ha realitzat l'ajust lineal\footnote{Per a l'ajust, s'ha obviat el valor absolut i s'ha tingut en compte el signe que prèn la tangent en funció de l'angle d'incidència.} $\tan{\left(\alpha/\si{\degree}\right)}\left(\theta_\textup{i}\right)$, els paràmetres del qual es detallen en la taula \ref{tab:Ajust_IncidenciaPolaritzador}.
 
  \input{Figures/Grafica_IncidenciaPolaritzador}
 
- 
+ Tenint en compte que quan l'angle d'incidència és l'angle de Brewster, l'angle de l'eix de l'analitzador és nul, per la tria d'orígens realitzada en la secció \ref{sec:BrewsterVisual}, podem calcular l'angle de Brewster a partir dels paràemtres de l'ajust lineal, segons
+ \begin{equation*}
+  \theta_\textup{i} = \theta_\textup{iB} \Rightarrow \tan{\left(\alpha/\si{\degree}\right)} = a\, \theta_\textup{i} + b = 0 \Rightarrow \theta_\textup{iB} = \frac{-b}{a}
+ \end{equation*}
+ d'on s'obté que $\theta_\textup{iB} = \ang{56;36;} \pm \ang{1;48;}$.
+
+ Així mateix, s'ha calculat l'índex de refracció del medi dielèctric a partir d'aquest valor, seguint un procediment anàleg al que es detalla en la secció \ref{sec:BrewsterVisual}, obtenint ara que $n_\textup{t} = \num{1.52(10)}$.
+
+ Notem que tant el valor de l'angle de Brewster com el de l'índex de refracció són compatibles amb els obtinguts en la secció \ref{sec:BrewsterVisual}.
+
+ \input{Figures/Ajust_IncidenciaPolaritzador}
+
+ Finalment, tenint en compte que l'angle $a$ de l'eix de l'analitzador és el seu gir respecte el pla paral·lel al d'incidència i les fórmules \eqref{eq:Fresnel}, tenim la relació teòrica
+ \begin{equation} \label{eq:tanE}
+  \left| \tan{\alpha} \right | = \left| \frac{E_\shortparallel^\textup{r}}{E_\perp^\textup{r}} \right | = \left | - \frac{\cos\left(\theta_\textup{i} + \theta_\textup{t}\right)}{\cos\left(\theta_\textup{i} - \theta_\textup{t}\right)} \right |.
+ \end{equation}
+
+ Aplicant la llei de Snell als diferents angles d'incidència, i realitzant els càlculs que indica \eqref{eq:tanE}, s'han representat els punts de la sèrie blava de la figura \ref{fig:EsEp}.
+
+ \input{Figures/Grafica_EsEp}
+
+ Notem que les sèries de la gràfica de la figura \ref{fig:EsEp} se superposen dins d'un marge d'incertesa acceptable, la qual cosa confirma que el model teòric \eqref{eq:tanE} s'ajusta a les dades experimentals.
+
 \end{multicols}
 
 \appendix
