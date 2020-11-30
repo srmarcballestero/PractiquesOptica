@@ -116,9 +116,52 @@
 \begin{document}
 \maketitle
 
+\vspace{3mm}
 
-\section{Determinació visual de l'angle de Brewster} \label{sec:Brewster1}
+\begin{multicols}{2}
 
+ \section{Determinació visual de l'angle de Brewster} \label{sec:BrewsterVisual}
+
+ Considerem un feix de llum natural monocromàtica que incideix sobre la superfície d'un medi dielèctric d'índex de refracció $n_\textup{t}$, provinent d'un medi d'índex $n_\textup{i}$, formant un angle $\theta_\textup{i}$ amb la direcció normal. La llei de la reflexió ens determina que l'angle que forma el raig reflectit amb la normal és $\theta_\textup{r} = \theta_\textup{i}$ i la llei d'Snell ens dóna el valor de l'angle de deflexió del raig transmès, segons $\sin{\theta_{r}} = \left({n_\textup{i}}/{n_\textup{t}}\right)\sin{\theta_\textup{i}}$.
+
+ Segons les \emph{fórmules de Fresnel}, per a un material dielèctric, les amplituds incidents i reflectides del camp elèctric es relacionen segons
+ \begin{equation} \label{eq:Fresnel}
+  \frac{E_\perp^\textup{r}}{E_\perp} = -\frac{\sin\left(\theta_\textup{i} - \theta_\textup{t}\right)}{\sin\left(\theta_\textup{i} + \theta_\textup{t}\right)}, \hspace{1mm} \frac{E_\shortparallel^\textup{r}}{E_\shortparallel} = \frac{\tan\left(\theta_\textup{i} - \theta_\textup{t}\right)}{\tan\left(\theta_\textup{i} + \theta_\textup{t}\right)}
+ \end{equation}
+ on el subíndex $\perp$ fa referència a la component perpendicular al pla d'incidència i $\shortparallel$ a la paral·lela a l'esmentat pla.
+
+ Quan l'angle d'incidència és tal que $\theta_\textup{i} + \theta_\textup{t} = \pi/2$, és senzill comprovar que s'anul·la la component $E_\shortparallel^\textup{r}$, és a dir, la llum reflectida queda polaritzada linealment en la direcció perpendicular al pla d'incidència. Aquest angle
+ s'anomena \emph{angle de Brewster} i es denota $\theta_\textup{iB}$, i es pot comprovar que satisfà
+ \begin{equation} \label{eq:tanBrewster}
+  \tan{\theta_\textup{iB}} = \frac{n_\textup{t}}{n_\textup{i}}.
+ \end{equation}
+
+ L'objectiu d'aquesta secció és determinar l'angle de Brewster d'una làmina dielèctrica de vidre per tempteig visual. El sistema experimental consta d'una làmpada de sodi que dóna una llum que, en molt bona aproximació, es pot considerar monocromàtica de longitud $\SI{589}{\nano\metre}$, un col·limador que projecta rajos paral·lels sobre la mostra de material dielèctric, i un telescopi per a l'observació del feix reflectit, tot muntat sobre un goniòmetre. Tant sobre el col·limador com sobre el telescopi s'hi poden acoblar polaritzadors lineals. Anomenarem \emph{analitzador} al polarizador muntat sobre l'ocular del telescopi.
+
+ Procedint per tempteig, trobem l'angle d'incidència pel qual el feix de llum reflectit s'anul·la totalment per a una determinada posició de l'analitzador sobre el telescopi. En aquesta situació, podem assegurar que l'angle d'incidència és l'angle de Brewster, i que l'eix de l'analitzador és paral·lel al pla d'incidència, la qual cosa ens permet determinar el zero d'aquest polaritzador.
+
+ Podem estimar doncs, mitjançant el goniòmetre, que l'angle de Brewster de la mostra és $\theta_\textup{iB} = \ang{56;45;} \pm \ang{0;1;}$.
+
+ Fent sevir \eqref{eq:tanBrewster}, i tenint en compte que l'índex de refracció de l'aire és $n_\textup{i} \approx 1.000$, podem calcular l'índex de refracció de la mostra segons
+ \begin{equation*}
+  n_\textup{t} = n_\textup{i} \, \tan{\theta_\textup{iB}}
+ \end{equation*}
+ d'on s'obté el valor $n_\textup{t} = \num{1.5253(9)}$, que pertany al rang d'índexs que presenta el vidre.
+
+ \section{Mesura de l'angle de Brewster mitjançant la polarització} \label{sec:BrewsterPolaritzat}
+
+ Havent determinat el zero de l'analitzador a la secció \ref{sec:BrewsterVisual}, podem obtenir un feix de llum monocromàtica polaritzada $\ang{45;;}$ respecte el pla d'incidència, acoblant el polaritzador a a la sortida del col·limador.
+
+ Amb aquesta configuració, s'han realitzat mesures de l'angle $\alpha$ de l'eix de l'analitzador pel qual s'asoleix l'anul·lació de la llum, en funció de l'angle d'incidència del feix sobre la mostra. Amb això, s'han construït les dades de la taula \ref{tab:IncidenciaPolaritzador}.
+
+ \input{Figures/Taula_IncidenciaPolaritzador}
+
+ Així doncs, s'han representat els punts experimentals $\left | \tan{\left(\alpha / \si{\degree}\right)}\right |$ en funció de l'angle d'incidència en la figura \ref{fig:IncidenciaPolaritzador}. A més a més, s'ha realitzat l'ajust lineal\footnote{Per a l'ajust, s'ha obviat el valor absolut i s'ha tingut en compte el signe que prèn la tangent en funció de l'angle d'incidència.} $\tan{\left(\alpha/\si{\degree}\right)}\left(\theta_\textup{i}\right)$, els paràmetres del qual es detallen en la taula \ref{fig:AjustPolaritzador}.
+
+ \input{Figures/Grafica_IncidenciaPolaritzador}
+
+ 
+\end{multicols}
 
 \appendix
 \newpage
