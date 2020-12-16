@@ -176,11 +176,11 @@ i per tant el valor obtingut experimentalment és compatible amb el valor nomina
 
 \begin{enumerate} [label = (\alph*)]
   \item \textbf{Analitzeu l'efecte d'equivocar-se comptant els màxims d'interferència en el càlcul de la longitud d'ona de la font.}\\
-  Considerem una incertesa $\mathbb{Z} \ni \delta N > 0$ en el nombre de franjes d'interferència comptades en la secció \ref{sec:interfranja}. Si apliquem l'algoritme de propagació d'incerteses no correlacionades a l'equació \eqref{eq:interfranja}, considerant $\delta x_0 \approx \delta x_N =: \delta x$, i tenint en compte que $x_N > x_0$, obtenim que
+  Considerem una incertesa $\delta N > 0$ en el nombre de franjes d'interferència comptades en la secció \ref{sec:interfranja}. Si apliquem l'algoritme de propagació d'incerteses no correlacionades a l'equació \eqref{eq:interfranja}, considerant $\delta x_0 \approx \delta x_N =: \delta x$, i tenint en compte que $x_N > x_0$, obtenim que
   \begin{equation}
     \delta\left(\Delta x\right) = \frac{2}{N}\,\sqrt{\left(\delta x \right)^2 + \left(\Delta x\, \delta N\right )^2}
   \end{equation}
-  amb la qual cosa, com més gran sigui l'error $\delta N$, més gran serà $\delta\left(\Delta x \right)$, i per \eqref{eq:lambda}, l'error $\lambda$ augmentarà significativament.
+  amb la qual cosa, com més gran sigui l'error $\delta N$, més gran serà $\delta\left(\Delta x \right)$, i per \eqref{eq:lambda}, l'error en $\lambda$ augmentarà significativament.
 
   \item \textbf{Comproveu que en augmentar l'amplada de l'escletxa, la nitidesa de les franjes disminueix fins a desaparèixer, però $\Delta x$ no varia. Doneu una explicació d'aquest fet.}\\
   L'experiment de Young es realitza sota el supòsit que l'obertura de l'escletxa és mínima, amb la qual cosa es té coherència espacial en en el feix de llum que interfereix. Si s'obre l'escletxa, es passa a tenir una font extensa de llum, el comportament de la qual es pot entendre com el d'un conjunt de fonts puntuals col·locades en la direcció de separació de les làmines de l'escletxa. En aquesta situació, la llum de cada font travessa el sistema òptic i forma interferències incoherents espacialment que se superposen en el pla focal objecte de l'ocular, amb la qual cosa s'obté un patró interferomètric cada cop menys nítid. Malgrat això, s'observa que la interfranja es manté a mesura que es difuminen les línies, fet que és consistent amb \eqref{eq:lambda}, ja que el seu valor depèn de la longitud d'ona i la geometria del sistema, paràmetres que no es veuen afectats.
