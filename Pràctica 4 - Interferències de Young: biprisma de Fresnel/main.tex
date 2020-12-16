@@ -1,0 +1,196 @@
+\documentclass[11pt,a4paper,catalan]{article}
+\author{Marc Ballestero Ribó}
+
+%___PAQUETS NECESSARIS___%
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm,amssymb,amsmath,mathrsfs}
+\usepackage[catalan]{babel}
+\usepackage{wasysym}
+\usepackage[margin=25mm]{geometry}
+\usepackage[bottom]{footmisc}
+\usepackage{enumerate}
+\usepackage{array, boldline, makecell, booktabs, dcolumn}
+\usepackage[svgnames, table]{xcolor}
+\usepackage[all]{xy}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{multirow,multicol}
+\usepackage{pgfplots, tikz}
+\usepackage{pgfplotstable}
+\usepackage{graphics}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{chngpage}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=blue,
+}
+
+\sisetup{separate-uncertainty=true, exponent-product=\cdot}
+\DeclareSIUnit\dioptre{D}
+\DeclareSIUnit\arbitrary{u.a.}
+\DeclareSIUnit\percent{\%}
+\decimalpoint
+
+
+
+%\sisetup{locale = FR}
+
+%___NOUS TIPUS DE COLUMNES PER LES TAULES___%
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+%___COMANDAMENTS PERSONALITZATS___%
+\providecommand{\keywords}[1]{\textsc{{Paraules clau---}} #1}
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\nind}{\noindent}
+\newcommand{\res}[3]{$\left ( #1 \pm #2 \right ) \, \si{#3}$}
+\newcommand{\figref}[1]{figura \ref{#1}}
+\newcommand{\tabref}[1]{taula \ref{#1}}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\data}{\today}
+
+
+%___CAPÇALERA I PEU DE PÀGINA___%
+\pagestyle{fancy}
+\headheight=16pt
+\setlength{\headsep}{1cm}
+\fancypagestyle{headings}{
+\cfoot{\thepage}}
+\lhead{\scshape Òptica \textup{2020-21}}
+\rhead{\data \\ Marc Ballestero Ribó}
+
+%___CONFIGURACIÓ DEL PGFPLOTS___%
+\pgfplotsset{compat = 1.15}
+\pgfplotsset{
+    legend image with text/.style={
+        legend image code/.code={%
+            \node[anchor=center] at (0.3cm,0cm) {#1};
+        }
+    },
+    log x ticks with fixed point/.style={
+      xticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=0]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+    },
+    log y ticks with fixed point/.style={
+      yticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed zerofill, precision=0]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+  },
+}
+\usetikzlibrary{spy}
+
+%___CONFIGURACIÓ DELS PEUS DE FIGURA___%
+\captionsetup[figure]{justification = justified,labelfont={small,sc},textfont=small}
+\captionsetup[table]{name = Taula, justification = justified,labelfont={small,sc},textfont=small}
+
+%___DIRECTORI D'IMATGES___%
+\graphicspath{ {./Imatges/} }
+
+
+
+
+%___TÍTOL___%
+
+\title{\vspace{-1.5cm} Òptica \\ \vspace{1mm} Pràctica 4. Interferències de Young: biprisma de Fresnel}
+\author{Marc Ballestero Ribó - Grup D2}
+\date{\data}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Determinació de la longitud d'ona} \label{sec:longOna}
+L'objectiu d'aquesta pràctica és observar les interferències de Young obtingudes mitjançant un biprisma de Fresnel, tot realitzant mesures en el patró interferomètric per determinar la longitud d'ona del feix de llum incident.
+
+Per a l'efecte, s'ha col·locat una làmpada de sodi de longituds d'ona $\lambda_\textup{D1} = \SI{5895.9}{\angstrom}$ i $\lambda_\textup{D2} = \SI{5890}{\angstrom}$ sobre un banc òptic, seguida d'una escletxa regulable i un biprisma de Fresel. Al final del sistema òptic s'hi ha col·locat un ocular amb un reticle graduat.
+
+Amb aquesta configuració s'aconsegueix recrear la situació de l'experiment de la doble escletxa de Young, és a dir, la interacció de dos feixos monocromàtics i coherents i el consegüent patró interferomètric.
+
+\subsection{Mesura de la interfranja} \label{sec:interfranja}
+En aquesta secció es determina, mitjançant el micròmetre solidari al reticle de l'ocular, el valor de la interfranja del patró d'interferència, és a dir, la distància entre línies de màxima (o mínima) intensitat lluminosa.
+
+Malgrat es podria mesurar directament, es segueix el següent mètode per tal de minimitzar l'error en el valor experimental. Primer de tot, s'enrasa el reticle en el primer màxim, en el qual la lectura del micròmetre és $x_0 = \SI{0.00(1)}{\milli\metre}$. A continuació, es desplaça el reticle fins a comptar $N = 23$ màxims consecutius i s'obté la mesura del micròmetre\footnote{Les mesures que se situen entre dues marques consecutives s'han estimat com la mitjana dels valors de les marques $a_1$ i $a_2$ junt amb la incertesa associada a aquest càlcul, que ve donada per $\delta\left[\left(a_1+a_2\right)/2\right] = \frac{1}{2}\,\sqrt{\left(\delta a_1\right)^2 + \left(\delta a_2\right)^2}$.} $x_N = \SI{4.855(7)}{\milli\metre}$. Així doncs, la interfranja $\Delta x$ vindrà donada per
+\begin{equation} \label{eq:interfranja}
+  \Delta x = \frac{\left | x_N - x_0 \right |}{N}
+\end{equation}
+d'on s'obté que $\Delta x = \SI{212.4(5)}{\micro\metre}$.
+
+\subsection{Separació entre les imatges de l'escletxa} \label{sec:d}
+En aquest apartat es determinarà la distància $d$ que separa les imatges de l'escletxa a través del biprisma, les quals corresponen a les fonts de llum \emph{virtuals} que satisfan les condicions interferomètriques de coherència.
+
+Col·locant una lent convergent auxiliar sobre el banc òptic, es mesuren les distàncies que corresponen a les dues posicions conjugades en les quals les imatges de l'escletxa es veuen nítides a través de l'ocular. Siguin $d'_1$ i $d'_2$ les separacions entre les imatges observades en cada cas, i $a$ i $a'$ les distàncies objecte i imatge conjugades, respectivament. Els augments laterals de la imatge venen donats per
+\begin{equation}
+  \beta'_1 = \frac{d'_1}{d} = \frac{a'}{a}, \hspace{3mm} \beta'_2 = \frac{d'_2}{d} = \frac{a}{a'}
+\end{equation}
+d'on es desprèn que
+\begin{equation} \label{eq:d}
+  d^2 = d'_1\,d'_2 \Rightarrow d = \sqrt{d'_1\,d'_2}
+\end{equation}.
+S'ha determinat, mitjançant el micròmetre de l'ocular, que $d'_1 = \SI{10.067(7)}{\milli\metre}$ i $d'_2 = \SI{0.785(5)}{\milli\metre}$, amb la qual cosa, aplicant \eqref{eq:d}, s'obté que $d = \SI{2.811(13)}{\milli\metre}$.
+
+\subsection{Distància entre l'escletxa i el pla d'observació a l'ocular} \label{sec:D}
+En aquesta secció es determina la distància $D$ entre l'escletxa i el reticle col·locat al pla focal objecte de l'ocular, mitjançant un microscopi de banc.
+
+Si es col·loca el microscopi en el lloc ocupat per la làmpada i s'enfoca l'escletxa, es té que la posició relativa del microscopi és la lectura $L_\textup{A} = \SI{1923(1)}{\milli\metre}$ de la posició del seu peu sobre el banc òptic. Equivalentment, enfocant el reticle s'obté la posició $L_\textup{B} = \SI{901(1)}{\milli\metre}$.
+
+Amb això, la distància $D$ ve donada per
+\begin{equation}
+  D = \left | L_\textup{A} - L_\textup{B} \right |
+\end{equation}
+i per tant $D = \SI{1022.0(14)}{\milli\metre}$.
+
+\subsection{Longitud d'ona de la font} \label{sec:lambda}
+Finalment, amb les dades obtingudes es determina la longitud d'ona $\lambda$ de la font. En la disposició del sistema òptic del biprisma de Fresnel, la interfranja es relaciona amb la longitud d'ona segons
+\begin{equation} \label{eq:lambda}
+  \Delta x = \lambda\, \frac{D}{d} \Rightarrow \lambda = \frac{d}{D} \, \Delta x.
+\end{equation}
+
+Emprant els valors obtinguts a les seccions anteriors per a $d$, $D$ i $\Delta x$, s'obté que la longitud d'ona de la font és $\lambda = \SI{584(3)}{\nano\metre}$.
+
+Si es compara aquest valor amb les longituds d'ona nominals de la font de sodi\footnote{Es considera que aquests valors no tenen cap incertesa associada.} $\lambda_\textup{D1} = \SI{589.59}{\nano\metre}$ i $\lambda_\textup{D2} = \SI{589.0}{\nano\metre}$, es té que
+\begin{align*}
+  \SI{6}{\nanometre} = \left | \lambda - \lambda_\textup{D1} \right | &\leq 2\, \delta \lambda = \SI{6}{\nano\metre} \\
+  \SI{5}{\nanometre} = \left | \lambda - \lambda_\textup{D2} \right | &\leq 2\,\delta \lambda = \SI{6}{\nano\metre}
+\end{align*}
+i per tant el valor obtingut experimentalment és compatible amb el valor nominal de la longitud d'ona de la font.
+
+\section{Qüestions addicionals}
+
+\begin{enumerate} [label = (\alph*)]
+  \item \textbf{Analitzeu l'efecte d'equivocar-se comptant els màxims d'interferència en el càlcul de la longitud d'ona de la font.}\\
+  Considerem una incertesa $\mathbb{Z} \ni \delta N > 0$ en el nombre de franjes d'interferència comptades en la secció \ref{sec:interfranja}. Si apliquem l'algoritme de propagació d'incerteses no correlacionades a l'equació \eqref{eq:interfranja}, considerant $\delta x_0 \approx \delta x_N =: \delta x$, i tenint en compte que $x_N > x_0$, obtenim que
+  \begin{equation}
+    \delta\left(\Delta x\right) = \frac{2}{N}\,\sqrt{\left(\delta x \right)^2 + \left(\Delta x\, \delta N\right )^2}
+  \end{equation}
+  amb la qual cosa, com més gran sigui l'error $\delta N$, més gran serà $\delta\left(\Delta x \right)$, i per \eqref{eq:lambda}, l'error $\lambda$ augmentarà significativament.
+
+  \item \textbf{Comproveu que en augmentar l'amplada de l'escletxa, la nitidesa de les franjes disminueix fins a desaparèixer, però $\Delta x$ no varia. Doneu una explicació d'aquest fet.}\\
+  L'experiment de Young es realitza sota el supòsit que l'obertura de l'escletxa és mínima, amb la qual cosa es té coherència espacial en en el feix de llum que interfereix. Si s'obre l'escletxa, es passa a tenir una font extensa de llum, el comportament de la qual es pot entendre com el d'un conjunt de fonts puntuals col·locades en la direcció de separació de les làmines de l'escletxa. En aquesta situació, la llum de cada font travessa el sistema òptic i forma interferències incoherents espacialment que se superposen en el pla focal objecte de l'ocular, amb la qual cosa s'obté un patró interferomètric cada cop menys nítid. Malgrat això, s'observa que la interfranja es manté a mesura que es difuminen les línies, fet que és consistent amb \eqref{eq:lambda}, ja que el seu valor depèn de la longitud d'ona i la geometria del sistema, paràmetres que no es veuen afectats.
+
+  \item \textbf{Observeu l'estructura de les franjes d'interferència obtingudes amb una font de llum blanca. Descriviu i interpreteu el resultat.}\\
+  Quan se substitueix la llum de sodi per una font de llum blanca, el patró interferomètric que produeix en travessar el sistema òptic es veu significativament afectat. En aquest cas, s'observen clarament franjes blanques i fosques al centre del reticle, i a mesura que ens n'allunyem aquestes es difuminen i presenten certa coloració. Aquest fet s'explica tenint en compte dos factors. Primerament, en substituir la llum de sodi per una font de llum blanca -no monocromàtica-, es perd coherència temporal en el feix de llum, la qual cosa és una pèrdua de les condicions mínimes per a l'observació de les interferències de Young. D'altra banda, al tractar-se d'una font monocromàtica, les diferents longituds d'ona que la componen es refracten de manera diferent en el biprisma, amb la qual cosa es perd coherència espacial i les escletxes imatge se situen en posicions diferenciades, donant lloc a patrons d'interferència diferents i a zones colorades d'interferència constructiva que presenten interfranjes diferents, vist que \eqref{eq:lambda} depèn de la longitud d'ona del feix.
+\end{enumerate}
+
+
+\appendix
+\newpage
+\input{apendix}
+\end{document}
