@@ -158,15 +158,15 @@ Considerant el punt d'incidència normal, es té $\theta = \SI{0}{\degree} \Righ
  \right \}
  \Longrightarrow 2 \left (d_1 - d_2 \right ) = \left (k_1 - k_2 \right) \lambda = n \lambda
 \end{equation}
-on $n \in \mathbb{N}$ és el nombre de màxims que apareixen o desapareixen pel centre de la imatge.
+on $n \in \mathbb{Z}$ és el nombre de màxims que apareixen o desapareixen pel centre de la imatge, essent $n>0$ si n'apareixen i $n<0$ si en desapareixen.
 
 Vist que el cargol micromètric que regula el desplaçament del mirall $\textup{E}_1$ té una reducció mecànica $1:5$, es té que $d_1 - d_2 = \left (D_1 - D_2 \right) / 5$, on $D_i$ són els valors mesurats en l'escala del micròmetre. Finalment, de \eqref{eq:lambda1} es desprèn que
 \begin{equation} \label{eq:lambda}
  \lambda = \frac{2}{5n}\left(D_1 - D_2 \right)
-\end{equation}.
+\end{equation}
 
 \subsection{Làser díode} \label{sec:laser}
-Incorporant com a font del sistema òptic un làser díode expandit amb una lent, s'ha obtingut que, entre $D_1 = \SI{4.320(5)}{\milli\metre}$ i $D_2 = \SI{4.230(5)}{\milli\metre}$ apareixen\footnote{En la secció \ref{sec:errors} es discuteix tot allò relatiu a la incertesa en el nombre d'anells $\delta n$.} $n = \num{55(2)}$ anells d'interferència. L'error en les distàncies s'ha près com la meitat de la resolució de l'escala del micròmetre.
+Incorporant com a font del sistema òptic un làser díode expandit amb una lent, s'ha obtingut que, entre $D_1 = \SI{4.320(5)}{\milli\metre}$ i $D_2 = \SI{4.230(5)}{\milli\metre}$ apareixen $n = \num{55(2)}$ anells d'interferència\footnote{En la secció \ref{sec:errors} es discuteix tot allò relatiu a la incertesa que presenten les mesures experimentals.}. L'error en les distàncies s'ha près com la meitat de la resolució de l'escala del micròmetre.
 
 Aplicant \eqref{eq:lambda} i propagant les incerteses corresponents, s'obté que $\lambda_\textup{laser} = \SI{650 \pm 60}{\nano\metre}$, valor que és compatible amb el d'un làser díode de color vermell.
 
@@ -176,7 +176,7 @@ En aquest cas s'ha il·luminat el sistema mitjançant una làmpada de sodi, que 
 Per a mesurar la longitud d'ona de la font a partir del patró interferomètric, s'ha considerat que $\lambda_\textup{Na} \approx \lambda_\textup{Na}'$ i s'ha procedit de manera anàloga a la secció anterior, realitzant dues mesures en regions de separació del mirall diferents per a més precisió.
 
 \begin{itemize} [label = --]
- \item \textbf{Mesura 1}. S'ha obtingut que entre $D_1 = \SI{6.720(5)}{\milli\metre}$ i $D_2 = \SI{6.800(5)}{\milli\metre}$ desapereixien\footnote{El signe negatiu de $n$ es deu al fet que els anells desapareixen pel centre de la imatge.} $n = \num{-54(2)}$ anells, per tant, aplicant \eqref{eq:lambda} s'obté que $\lambda_{\textup{Na},1} = \SI{590 \pm 60}{\nano\metre}$.
+ \item \textbf{Mesura 1}. S'ha obtingut que entre $D_1 = \SI{6.720(5)}{\milli\metre}$ i $D_2 = \SI{6.800(5)}{\milli\metre}$ desapereixien $n = \num{-54(2)}$ anells, per tant, aplicant \eqref{eq:lambda} s'obté que $\lambda_{\textup{Na},1} = \SI{590 \pm 60}{\nano\metre}$.
  \item \textbf{Mesura 2}. S'ha obtingut que entre $D_1 = \SI{8.020(5)}{\milli\metre}$ i $D_2 = \SI{7.940(5)}{\milli\metre}$ apareixien $n = \num{58(2)}$ anells, per tant, aplicant \eqref{eq:lambda} s'obté que $\lambda_{\textup{Na},2} = \SI{550 \pm 50}{\nano\metre}$.
 \end{itemize}
 
@@ -184,13 +184,13 @@ Així doncs, la longitud d'ona de la font de sodi s'ha estimat com la mitjana de
 
 Mitjançant l'interferòmetre, també es pot mesurar la separació en $\lambda$ del doblet del sodi, aprofitant el fet que les dues longituds d'ona dominants del sodi són molt properes i donen lloc a pulsacions en el contrast de la imatge. Considerant $\lambda_\textup{Na} < \lambda_\textup{Na}'$, es té que per a dues posicions de mínim de contrast consecutives, $d_1$ i $d_2$
 \begin{equation} \label{eq:Dlambda}
-  \left.
-  \begin{matrix}
-   2d_1 = k_1 \lambda_\textup{Na} = k_1' \lambda_\textup{Na}' \\
-   2d_2 = k_2 \lambda_\textup{Na} = k_2' \lambda_\textup{Na}'
-  \end{matrix}
-  \right \}
-  \Longrightarrow \Delta \lambda_\textup{Na} := \lambda_\textup{Na} - \lambda_\textup{Na}' = \frac{\lambda_\textup{Na} \lambda_\textup{Na}'}{2 \left(d_1 - d_2\right)} \approx \frac{5 \lambda_\textup{Na,av} ^2}{2\left(D_1 - D_2\right)}
+ \left.
+ \begin{matrix}
+  2d_1 = k_1 \lambda_\textup{Na} = k_1' \lambda_\textup{Na}' \\
+  2d_2 = k_2 \lambda_\textup{Na} = k_2' \lambda_\textup{Na}'
+ \end{matrix}
+ \right \}
+ \Longrightarrow \Delta \lambda_\textup{Na} := \lambda_\textup{Na} - \lambda_\textup{Na}' = \frac{\lambda_\textup{Na} \lambda_\textup{Na}'}{2 \left(d_1 - d_2\right)} \approx \frac{5 \lambda_\textup{Na,av} ^2}{2\left(D_1 - D_2\right)}
 \end{equation}
 on s'ha aproximat el producte de les longituds d'ona pel quadrat de la longitud d'ona mitjana obtinguda anteriorment.
 
@@ -202,10 +202,39 @@ S'han realitzat dues mesures per a major precisió.
 
 Finalment, la separació del doblet del sodi s'ha estimat com la mitjana entre els dos valors obtinguts, calculada segons \eqref{est:mitjana}, obtenint que $\Delta \lambda_\textup{Na,av} = \SI{0.51(5)}{\nano\metre}$, que és compatible amb l'obtinguda amb els valors de la bibliografia $\Delta \lambda_\textup{Na} = \SI{0.6}{\nano\metre}$, ja que
 \begin{equation*}
-  \SI{0.09}{\nano\metre} = \left | \Delta\lambda_\textup{Na,av} - \Delta\lambda_\textup{Na} \right | \leq 2\,\delta\left(\Delta\lambda_\textup{Na,av}\right) = \SI{0.10}{\nano\metre}
-\end{equation*}.
+ \SI{0.09}{\nano\metre} = \left | \Delta\lambda_\textup{Na,av} - \Delta\lambda_\textup{Na} \right | \leq 2\,\delta\left(\Delta\lambda_\textup{Na,av}\right) = \SI{0.10}{\nano\metre}
+\end{equation*}
 
 \section{Anàlisi de les fonts d'error experimental} \label{sec:errors}
+En aquesta secció es discuteixen els aspectes referents a les diverses fonts d'error presents en l'experiment realitzat.
+
+Primer de tot, cal considerar l'error intrínsec a la calibració i centrat del sistema òptic; es tracta d'una font d'error sistemàtic present durant tot el procediment experimental, que si més no, no es pot quantificar, però si que cal tenir en compte a l'hora d'analitzar els resultats obtingts.
+
+Més enllà d'això, es té que les mesures de distància $D_i$ en l'escala del micròmetre presenten un error sistemàtic associat a la resolució de l'instrument, que s'ha estimat com la meitat de la distància entre les marques més petites de l'escala graduada de l'instrument, vist que en molts casos els punts experimentals cauen entre dues marques consecutives. La incertesa és, doncs, $\delta D_i = \SI{0.005}{\milli\metre} = \SI{5e3}{\nano\metre}$.
+
+Finalment, el nombre d'anells d'interferència que apareixen o desapareixen pel centre de la pantalla d'observació quan es modifica la distància relativa dels braços de l'interferòmetre també presenta una incertesa experimental associada al fet que, una variació molt petita de $d$ sovint provoca un canvi sobtat en $n$, la qual cosa és una font d'errors de comptatge. Així doncs, s'ha estimat que $\delta n = \num{2}$ anells.
+
+Si s'aplica l'algorisme de propagació d'incerteses no correlacionades a l'equació \eqref{eq:lambda}, s'obté que
+\begin{equation} \label{eq:dlambda}
+ \delta \lambda = \frac{2}{5\left |n\right |} \sqrt{\left [\left (D_1 - D_2 \right) \frac{\delta n}{n}\right] ^2 + \left (\delta D_1\right)^2 + \left(\delta D_2\right)^2}
+\end{equation}
+.
+
+Fixat $\delta D_i = \SI{5e3}{\nano\metre}$ es té que
+\begin{equation*}
+ \delta \lambda = \frac{2}{5\left |n\right |} \sqrt{\left [\left (D_1 - D_2 \right) \frac{\delta n}{n}\right] ^2 + \SI{5e7}{\nano\metre\squared}}, \hspace{3mm} \left[\delta \lambda\right] = \si{\nano\metre}
+\end{equation*}
+d'on, vist que $\left [\left (D_1 - D_2 \right) \frac{\delta n}{n}\right]^2 \ll \SI{5e7}{\nano\metre\squared}$, l'error introduït si hi ha un error de comptatge en els anells d'interferència és poc significatiu si es té en compte l'error en la mesura del micròmetre.
+
+Els valors numèrics dels errors en la longitud d'ona i els aspectes relatius a la compatibilitat dels resultats experimentals amb els valors experimentals ja s'han detallat a la secció \ref{sec:lambdes}.
+
+D'altra banda, propagant incerteses en l'equació \eqref{eq:Dlambda}, s'obté que l'error en la separació del doblet del sodi ve donat per
+\begin{equation} \label{eq:dDlambda}
+  \delta\left(\Delta\lambda_\textup{Na,av}\right) = \frac{5\lambda_\textup{Na,av}}{D_1 - D_2} \sqrt{\left (\delta \lambda_\textup{Na,av}\right)^2 + \left[\frac{\lambda_\textup{Na,av}^2}{2\left(D_1 - D_2 \right)}\, \delta \left(D_1 - D_2 \right)\right]^2}
+\end{equation}
+amb la qual cosa, atès que l'error en el comptatge d'anells no afecta significativament a l'error en la longitud d'ona, $\delta\left(\Delta\lambda_\textup{Na,av}\right)$ tampoc es veu substancialment afectat.
+
+Igualment, el valor numèric del càlcul corresponent ja s'ha exposat a la secció \ref{sec:lambdes}.
 
 
 
