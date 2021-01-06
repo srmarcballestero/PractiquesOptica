@@ -13,7 +13,7 @@
 \usepackage[svgnames, table]{xcolor}
 \usepackage[all]{xy}
 \usepackage{parskip}
-\usepackage{float}
+\usepackage{float, subfig}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{multirow,multicol}
@@ -120,7 +120,9 @@
  \nind
 \end{abstract}
 
-\section{Punt d'equidistància} \label{sec:puntEqui}
+\input{Figures/Interferometre.tex}
+
+\section{Patró interferomètric} \label{sec:patroInt}
 El primer pas que s'ha realitzat és la calibració i posada a punt de l'interferòmetre, tot regulant finament l'orientació del mirall $\textup{E}_2$ per tal d'aconseguir-ne la perpendicularitat perfecta amb $\textup{E}_1$. En aquestes condicions, amb el sistema òptic centrat, es poden observar anells d'interferència centrats.
 
 Ara, es proposa estudiar qualitativament el comportament interferomètric del sistema quan es modifica la longitud d'un dels braços, mitjançant la regulació micromètrica de la posició del mirall $\textup{E}_1$. S'observa que, en un desplaçament continu, apareixen o desapareixen anells d'interferència en funció de com es varia la longitud del braç.
@@ -130,7 +132,7 @@ Sigui $d$ la diferència de longitud dels dos braços, que s'expressa
  d = \textup{LE}_2 - \textup{LE}_1
 \end{equation}
 on $\textup{LE}_i$ és la distància entre la làmina separadora $\textup{L}$ i el mirall $\textup{E}_i$. Siguin $\textup{S}'$ i $\textup{S}''$ les imatges de la font en els miralls $\textup{E}_1$ i $\textup{E}_2$, respectivament. La diferència de camí òptic, observada en $\textup{O}$, entre dos rajos provinents de $\textup{S}'$ i $\textup{S}''$ amb un angle $\theta$, ve donada per
-\begin{equation}
+\begin{equation} \label{eq:Delta}
  \Delta = 2 d\cos{\theta}
 \end{equation}
 d'on es dedueix que
@@ -235,6 +237,16 @@ D'altra banda, propagant incerteses en l'equació \eqref{eq:Dlambda}, s'obté qu
 amb la qual cosa, atès que l'error en el comptatge d'anells no afecta significativament a l'error en la longitud d'ona, $\delta\left(\Delta\lambda_\textup{Na,av}\right)$ tampoc es veu substancialment afectat.
 
 Igualment, el valor numèric del càlcul corresponent ja s'ha exposat a la secció \ref{sec:lambdes}.
+
+\section{Punt d'equidistància} \label{sec:puntequi}
+
+Es diu que l'interferòmetre està en el \emph{punt d'equidistància} quan la diferència entre la longitud dels braços $d$ és nul·la. En aquesta situació, segons \eqref{eq:Delta} la diferència de camí òptic entre els rajos que interaccionen és nul·la per qualsevol angle $\theta$, i per tant, s'espera que en la pantalla d'observació el patró interferencial sigui completament destructiu, atès que el feix provinent del mirall $\textup{E}_2$ pateix un desfasament de $\pi$ en la reflexió.
+
+Tot il·lumianant el sistema amb una llum de mercuri i una font de llum blanca, s'ha regulat la posició del mirall $\textup{E}_1$ fins observar anells cada cop més separats i deformats. Finalment, s'arriba a la situació en què s'oberven franjes de colors amb saturació màxima al voltant d'una franja completament fosca. Es pot afirmar que el sistema està en el punt d'equidistància.
+
+El fet que s'observi un patró d'interferència es deu al fet que els miralls de l'interferòmetre no són perfectament plans, la qual cosa provoca que la diferència de camí òptic entre les ones que interfereixen no sigui constant en tot el camp visual.
+
+Encara més, si s'apaga la llum de mercuri, se segueixen observant franjes de colors molt saturats degudes a la interferència de la llum blanca, però una petita variació en $d$ les fa desaparèixer ràpidament. Això es deu al fet que els camps que interfereixen són coherents entre sí, al provenir de la mateixa font, però al tractar-se de llum no monocromàtica, la seva longitud de coherència és molt baixa, amb la qual cosa només és possible observar interferències de llum blanca en una regió molt propera al punt d'equidistància.
 
 
 
