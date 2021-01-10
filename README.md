@@ -8,3 +8,5 @@ Es tracta d'un acte totalment altruista, les pràctiques són completament gratu
 tapar-vos en un dia de pluja, falcar una taula, com a pala de ping-pong o per llençar avions de paper a la facultat d'enginyeria; o potser per ajudar-vos
 en l'assignatura.
 
+<img src="https://pbs.twimg.com/media/ElaMAixXIAIIMI9?format=jpg&name=small"
+     style="float: center;" />
