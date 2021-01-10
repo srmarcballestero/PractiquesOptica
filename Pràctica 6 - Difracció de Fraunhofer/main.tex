@@ -36,6 +36,7 @@
 \sisetup{separate-uncertainty=true, exponent-product=\cdot}
 \DeclareSIUnit\dioptre{D}
 \DeclareSIUnit\arbitrary{u.a.}
+\DeclareSIUnit\pixel{px}
 \DeclareSIUnit\percent{\%}
 \decimalpoint
 
@@ -52,6 +53,7 @@
 %___COMANDAMENTS PERSONALITZATS___%
 \providecommand{\keywords}[1]{\textsc{{Paraules clau---}} #1}
 \newcommand{\diff}{\mathrm{d}}
+\DeclareMathOperator{\sinc}{sinc}
 \newcommand{\nind}{\noindent}
 \newcommand{\res}[3]{$\left ( #1 \pm #2 \right ) \, \si{#3}$}
 \newcommand{\figref}[1]{figura \ref{#1}}
@@ -119,6 +121,25 @@
 \begin{abstract}
  \nind
 \end{abstract}
+
+\section{Perfils d'intensitat i figures de difracció} \label{sec:figdif}
+En aquesta secció s'estudien les diferents figures de difracció obtingudes per a cada tipus d'obertura, tot calculant els seus paràmetres geomètrics a partir dels perfils d'intensitats obtinguts i els ajustos corresponents.
+
+\subsection{Obertura rectangular} \label{sec:rect1}
+Un objecte de difracció consistent en una petita obertura rectangular de dimensions $L_x \times L_y$ es pot modelar mitjançant la \emph{funció rectangle bidimensional}, $f\left(x,y\right) = \mathrm{rect}\left(x/L_x, y/L_y\right)$, que té transmitància 1 per $\left(x,y\right) \in \left[-L_x/2, L_x/2\right] \times \left[-L_y/2, L_y/2\right]$ i 0 altrament. Així, la distribució d'intensitats de la difracció de Fraunhofer de l'objecte queda\footnote{Definim la funció \emph{sinus quocient} $\sinc : \mathbb{R} \to \mathbb{R}$ com $\sinc{x} := \sin{\left(\pi x\right)}/\left(\pi x\right),$ per $x \in \mathbb{R} \smallsetminus \{0\} $ i $ \sinc{0} := 1,$ per $x = 0$.}
+ \begin{equation}
+  I\left(x,y\right) \propto \left [\sinc{\left(\frac{L_x x}{\lambda f'}\right)}\,\sinc{\left(\frac{L_y y}{\lambda f'}\right)}\right]^2
+ \end{equation}
+ on $\lambda$ és la longitud d'ona de la font que es propaga per l'escletxa i $f'$ la focal de la lent de Fourier $\textup{L}_2$.
+
+ Els perfils d'intensitats en cada eix $I(x) := I(x,0)$ i $I(y) := I(0,y)$ obtinguts mitjançant l'anàlisi de les dades volcades pel sensor CCD es representen en la figura \ref{fig:Rect1-XY}, així com les funcions ajustades per superposició amb la gràfica experimental, donades per
+ \begin{align}
+   I(x) &= h_x \left [\sinc\left(\Lambda_x \left (x - \Delta x\right)\right) \cos\left(T_x x\right) \right]^2 \\
+   I(y) &= h_y \left [\sinc\left(\Lambda_y \left (y - \Delta y\right)\right) \cos\left(T_y y\right) \right]^2
+ \end{align}
+ que depenen dels paràmetres ajustats manualment sobre la corba empírca $h_x, h_y$, anomenats \emph{alçada}, $\Lambda_x, \Lambda_y$, als quals es farà referència per \emph{amplada} i $\Delta x, \Delta y$, que es designen per \emph{desplaçament}.
+
+ Tenint en compte que, per al sensor CCD usat, $\SI{1}{\pixel} = \SI{6}{\micro\metre}$, per a l'obertura rectangular s'han obtingut els paràmetres que es detallen en la taula \ref{tab:Rect1-XY}.
 
 \input{Figures/Rect1 - XY}
 
