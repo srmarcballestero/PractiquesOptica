@@ -54,6 +54,8 @@
 \providecommand{\keywords}[1]{\textsc{{Paraules clau---}} #1}
 \newcommand{\diff}{\mathrm{d}}
 \DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\rect}{rect}
+\DeclareMathOperator{\fcirc}{circ}
 \newcommand{\nind}{\noindent}
 \newcommand{\res}[3]{$\left ( #1 \pm #2 \right ) \, \si{#3}$}
 \newcommand{\figref}[1]{figura \ref{#1}}
@@ -96,6 +98,7 @@
       }
   },
 }
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
 \usetikzlibrary{spy}
 
 %___CONFIGURACIÓ DELS PEUS DE FIGURA___%
@@ -126,27 +129,60 @@
 En aquesta secció s'estudien les diferents figures de difracció obtingudes per a cada tipus d'obertura, tot calculant els seus paràmetres geomètrics a partir dels perfils d'intensitats obtinguts i els ajustos corresponents.
 
 \subsection{Obertura rectangular} \label{sec:rect1}
-Un objecte de difracció consistent en una petita obertura rectangular de dimensions $L_x \times L_y$ es pot modelar mitjançant la \emph{funció rectangle bidimensional}, $f\left(x,y\right) = \mathrm{rect}\left(x/L_x, y/L_y\right)$, que té transmitància 1 per $\left(x,y\right) \in \left[-L_x/2, L_x/2\right] \times \left[-L_y/2, L_y/2\right]$ i 0 altrament. Així, la distribució d'intensitats de la difracció de Fraunhofer de l'objecte queda\footnote{Definim la funció \emph{sinus quocient} $\sinc : \mathbb{R} \to \mathbb{R}$ com $\sinc{x} := \sin{\left(\pi x\right)}/\left(\pi x\right),$ per $x \in \mathbb{R} \smallsetminus \{0\} $ i $ \sinc{0} := 1,$ per $x = 0$.}
- \begin{equation}
-  I\left(x,y\right) \propto \left [\sinc{\left(\frac{L_x x}{\lambda f'}\right)}\,\sinc{\left(\frac{L_y y}{\lambda f'}\right)}\right]^2
- \end{equation}
- on $\lambda$ és la longitud d'ona de la font que es propaga per l'escletxa i $f'$ la focal de la lent de Fourier $\textup{L}_2$.
+Un objecte de difracció consistent en una petita obertura rectangular de dimensions $L_x \times L_y$ es pot modelar mitjançant la \emph{funció rectangle bidimensional}, $f\left(x,y\right) = \rect\left(x/L_x, y/L_y\right)$, que té transmitància 1 per $\left(x,y\right) \in \left(-L_x/2, L_x/2\right) \times \left(-L_y/2, L_y/2\right)$ i 0 altrament. Així, la distribució d'intensitats de la difracció de Fraunhofer de l'objecte queda\footnote{Definim la funció \emph{sinus quocient} $\sinc : \mathbb{R} \to \mathbb{R}$ com $\sinc{x} := \sin{\left(\pi x\right)}/\left(\pi x\right),$ per $x \in \mathbb{R} \smallsetminus \{0\} $ i $ \sinc{0} := 1,$ per $x = 0$.}
+\begin{equation} \label{eq:Irect}
+ I\left(x,y\right) \propto \left [\sinc{\left(\frac{L_x x}{\lambda f'}\right)}\,\sinc{\left(\frac{L_y y}{\lambda f'}\right)}\right]^2
+\end{equation}
+on $\lambda$ és la longitud d'ona de la font que es propaga per l'escletxa i $f'$ la focal de la lent de Fourier $\textup{L}_2$.
 
- \input{Figures/Rect1 - Img}
+\input{Figures/Rect1 - Img}
 
- Els perfils d'intensitats en cada eix $I(x) := I(x,0)$ i $I(y) := I(0,y)$ obtinguts mitjançant l'anàlisi de les dades volcades pel sensor CCD es representen en la figura \ref{fig:Rect1-XY}, així com les funcions ajustades per superposició amb la gràfica experimental, donades per
- \begin{align}
-   I(x) &= h_x \left [\sinc\left(\Lambda_x \left (x - \Delta x\right)\right) \cos\left(T_x x\right) \right]^2 \\
-   I(y) &= h_y \left [\sinc\left(\Lambda_y \left (y - \Delta y\right)\right) \cos\left(T_y y\right) \right]^2
- \end{align}
- que depenen dels paràmetres ajustats manualment sobre la corba empírca $h_x, h_y$, anomenats \emph{alçada}, $\Lambda_x, \Lambda_y$, als quals es farà referència per \emph{amplada} i $\Delta x, \Delta y$, que es designen per \emph{desplaçament}.
+Els perfils d'intensitats en cada eix $I(x) := I(x,0)$ i $I(y) := I(0,y)$ obtinguts mitjançant l'anàlisi de les dades volcades pel sensor CCD es representen en la figura \ref{fig:Rect1-XY}, així com les funcions ajustades per superposició amb la gràfica experimental, donades per
+\begin{equation} \label{eq:irect}
+ \begin{aligned}
+  I(x) & = h_x \left [\sinc\left(\Lambda_x \left (x - \Delta x\right)\right) \cos\left(T_x x\right) \right]^2 \\
+  I(y) & = h_y \left [\sinc\left(\Lambda_y \left (y - \Delta y\right)\right) \cos\left(T_y y\right) \right]^2
+ \end{aligned}
+\end{equation}
+que depenen dels paràmetres ajustats manualment sobre la corba empírca $h_x, h_y$, anomenats \emph{alçada}, $\Lambda_x, \Lambda_y$, als quals es farà referència per \emph{amplada} i $\Delta x, \Delta y$, que es designen per \emph{desplaçament}.
 
- Tenint en compte que, per al sensor CCD usat, $\SI{1}{\pixel} = \SI{6}{\micro\metre}$, per a l'obertura rectangular s'han obtingut els paràmetres que es detallen en la taula \ref{tab:Rect1-Dat}. S'ha considerat que la seva incertesa està en l'última xifra decimal donada pel \emph{software} de recollida de dades.
+Tenint en compte que, per al sensor CCD usat, $\SI{1}{\pixel} = \SI{6}{\micro\metre}$, per a l'obertura rectangular s'han obtingut els paràmetres que es detallen en la taula \ref{tab:Rect1-Dat}. S'ha considerat que la seva incertesa està en l'última xifra decimal donada pel \emph{software} de recollida de dades.
 
- \input{Figures/Rect1 - Dades}
+\input{Figures/Rect1 - Dades}
 
+Així, comparant \eqref{eq:Irect} amb \eqref{eq:irect}, es poden obtenir les dimensions de l'escletxa a partir dels paràmetres de l'ajust segons
+\begin{equation} \label{eq:LsRect}
+ \begin{aligned}
+  L_x & = \Lambda_x \lambda f' \\
+  L_y & = \Lambda_y \lambda f'
+ \end{aligned}
+\end{equation}
+, amb la qual cosa s'obté que $L_x = \SI{0.527(4)}{\milli\metre}$ i $L_y = \SI{1.846(4)}{\milli\metre}$.
 \input{Figures/Rect1 - XY}
 
+\subsection{Obertura circular} \label{sec:circ1}
+En aquest cas, el feix de llum làser es propaga a través d'una obertura circular de radi $R$, que en coordenades polars es pot modelitzar per $f(r) = \fcirc{\left(r/R\right)}$, funció de transmitància 1 per $r \in \left(0, R\right)$ i 0 altrament. Així doncs, el seu perfil de difracció ve donat per
+\begin{equation} \label{eq:Icirc1}
+ I(r) \propto \left[\frac{2 J_1 \left(\pi \beta\right)}{\pi \beta}\right]^2, \hspace{3mm} \beta := \frac{2Rr}{\lambda f'}
+\end{equation}
+on $J_1$ és la funció de Bessel de primera espècie i ordre 1.
+
+\input{Figures/Circ1 - Img}
+
+Mitjançant l'ajust adient del perfil d'intensitats, realitzat amb el \emph{software} de recollida de dades i representat en la figura \ref{fig:Circ1-XY}, s'obtenen els paràmetres de la taula \ref{tab:Circ1-Dat}. En aquest cas, observem que $\Lambda_x$ i $\Lambda_y$ són compatibles dins el seu marge d'intcertesa, fet coherent amb la simetria radial de l'obertura circular.
+
+\input{Figures/Circ1 - Dades}
+
+Finalment, el radi de l'obertura es pot obtenir a partir de cadascuna de les amplades de manera independent, segons
+\begin{align}
+  \label{eq:Rx}
+  R & = \frac{\Lambda_x \lambda f'}{2} \\
+  \label{eq:Ry}
+  R & = \frac{\Lambda_y \lambda f'}{2}
+\end{align}
+.
+
+Siguin $R_x$ i $R_y$ els valors calculats per \eqref{eq:Rx} i \eqref{eq:Ry}, respectivament. Tenim que $R_x = \SI{0.557(4)}{\milli\metre}$ i $R_y = \SI{0.553(4)}{\milli\metre}$, que són clarament compatibles. S'estima, doncs, el radi de l'escletxa com la mitjana aritmètica  d'aquests valors junt amb la corresponent incertesa propagada, d'on $R = \SI{0.555(3)}{\milli\metre}$.
 
 \appendix
 \newpage
