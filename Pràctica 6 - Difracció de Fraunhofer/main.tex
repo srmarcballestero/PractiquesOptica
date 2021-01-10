@@ -182,7 +182,7 @@ Finalment, el radi de l'obertura es pot obtenir a partir de cadascuna de les amp
 \end{align}
 .
 
-Si denotem $R_x$ i $R_y$ els valors calculats per \eqref{eq:Rx} i \eqref{eq:Ry}, respectivament; obtenim que $R_x = \SI{0.557(4)}{\milli\metre}$ i $R_y = \SI{0.553(4)}{\milli\metre}$, que són clarament compatibles. S'estima, doncs, el radi de l'escletxa com la mitjana aritmètica  d'aquests valors junt amb la corresponent incertesa propagada, d'on $R = \SI{0.555(3)}{\milli\metre}$.
+Si denotem $R_x$ i $R_y$ els valors calculats per \eqref{eq:Rx} i \eqref{eq:Ry}, respectivament; obtenim que $R_x = \SI{0.2787(19)}{\milli\metre}$ i $R_y = \SI{0.2767(19)}{\milli\metre}$, que són clarament compatibles. S'estima, doncs, el radi de l'escletxa com la mitjana aritmètica  d'aquests valors junt amb la corresponent incertesa propagada, d'on $R = \SI{0.2777(13)}{\milli\metre}$.
 
 \input{Figures/Circ1 - XY}
 
@@ -209,7 +209,24 @@ En conseqüència, s'obté que $L_x = \SI{0.447(4)}{\milli\metre}$, $L_y = \SI{2
 
 \input{Figures/Rect2 - XY}
 
+\subsection{Doble obertura circular} \label{sec:circ2}
+Finalment, s'analitza el compartament de la llum quan es propaga a través de dues obertures circulars de radi $R$ separades una distància $D$ en l'eix $X$. De manera anàloga al cas anterior, es té que
+\begin{equation} \label{eq:Icirc2}
+   I(r) \propto \left[\frac{2 J_1 \left(\pi \beta\right)}{\pi \beta}\, \cos{\left(\frac{\pi D}{\lambda f'} x\right)}\right]^2, \hspace{3mm} \beta := \frac{2Rr}{\lambda f'}
+\end{equation}
+és a dir, el producte del perfil d'intensitats \eqref{eq:Icirc1} d'un sol cercle modulat pel terme cosinus quadrat relacionat amb les interferències de Young.
 
+\input{Figures/Circ2 - Img}
+
+Si s'ajusta el perfil d'intensitats, que es representa gràficament a la figura \ref{fig:Circ2-XY}, s'obtenen els paràmetres de la taula \ref{tab:Circ2-Dat}.
+
+\input{Figures/Circ2 - Dades}
+
+Notem que, d'una banda, el període $T_x$ no és nul, i de l'altra, les amplades en $x$ i $y$ coincideixen, tal com s'espera donada la simetria radial del cercle.
+
+A partir de \eqref{eq:Icirc2}, tenim que el radi dels cercles vindrà donat per \eqref{eq:Rx} i \eqref{eq:Ry}, d'on s'obté que $R_x = \SI{0.3830(19)}{\milli\metre}$ i $R_y = \SI{0.3830(19)}{\milli\metre}$, amb la qual cosa s'estima que el radi de les obetures és la mitjana $R = \SI{0.3830(13)}{\milli\metre}$. La distància de separació entre les obertures s'obté aplicant \eqref{eq:D}, d'on $D = \SI{0.7181(12)}{\milli\metre}$.
+
+\input{Figures/Rect2 - XY}
 
 \appendix
 \newpage
