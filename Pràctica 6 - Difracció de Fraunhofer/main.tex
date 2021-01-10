@@ -186,6 +186,29 @@ Si denotem $R_x$ i $R_y$ els valors calculats per \eqref{eq:Rx} i \eqref{eq:Ry},
 
 \input{Figures/Circ1 - XY}
 
+\subsection{Doble obertura rectangular} \label{sec:Rect2}
+Si el feix de llum es propaga a través de dues obertures rectangulars paral·leles amb els seus centres separats una distància $D$ en la direcció de l'eix $X$, la distribució d'intensitats de la difracció de Fraunhofer en el pla d'observació ve donada per
+\begin{equation}
+   I\left(x,y\right) \propto \left [\sinc{\left(\frac{L_x x}{\lambda f'}\right)}\,\sinc{\left(\frac{L_y y}{\lambda f'}\right)} \, \cos{\left(\frac{\pi D}{\lambda f'} x\right)}\right]^2
+\end{equation}
+és a dir, el perfil \eqref{eq:Irect} modulat pel cosinus al quadrat d'una quantitat proporcional a la separació entre els rectangles i la posició en $X$. Notem que aquest terme s'atribueix a l'aparició de franjes en el pla d'observació, fàcilment relacionables amb les interferències de Young.
+
+\input{Figures/Rect2 - Img}
+
+Ajustant el perfil d'intensitats, representat a la figura \ref{fig:Rect2-XY}, amb el \emph{software} d'anàlisi de dades, s'obtenen els paràmetres de la taula \ref{tab:Rect2-Dat}.
+
+\input{Figures/Rect2 - Dades}
+
+Notem que el període $T_x$ és no nul. Així doncs, tenint en compte \eqref{eq:irect}, les dimensions de les escletxes venen donades per \eqref{eq:LsRect}, mentres que la seva separació es calcula segons
+\begin{equation} \label{eq:D}
+  D = \frac{1}{\pi} T_x \lambda f'
+\end{equation}
+.
+
+En conseqüència, s'obté que els  $L_x = \SI{0.447(4)}{\milli\metre}$, $L_y = \SI{2.529(4)}{\milli\metre}$ i $D = \SI{0.3549(12)}{\milli\metre}$.
+
+
+
 \appendix
 \newpage
 \input{apendix}
