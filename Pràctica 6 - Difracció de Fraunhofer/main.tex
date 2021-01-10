@@ -1,0 +1,127 @@
+\documentclass[11pt,a4paper,catalan]{article}
+\author{Marc Ballestero Ribó}
+
+%___PAQUETS NECESSARIS___%
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm,amssymb,amsmath,mathrsfs}
+\usepackage[catalan]{babel}
+\usepackage{wasysym}
+\usepackage[margin=25mm]{geometry}
+\usepackage[bottom]{footmisc}
+\usepackage{enumerate}
+\usepackage{array, boldline, makecell, booktabs, dcolumn}
+\usepackage[svgnames, table]{xcolor}
+\usepackage[all]{xy}
+\usepackage{parskip}
+\usepackage{float, subfig}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{multirow,multicol}
+\usepackage{pgfplots, tikz}
+\usepackage{pgfplotstable}
+\usepackage{graphics}
+\usepackage{arydshln}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{chngpage}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=blue,
+}
+
+\sisetup{separate-uncertainty=true, exponent-product=\cdot}
+\DeclareSIUnit\dioptre{D}
+\DeclareSIUnit\arbitrary{u.a.}
+\DeclareSIUnit\percent{\%}
+\decimalpoint
+
+
+
+%\sisetup{locale = FR}
+
+%___NOUS TIPUS DE COLUMNES PER LES TAULES___%
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+%___COMANDAMENTS PERSONALITZATS___%
+\providecommand{\keywords}[1]{\textsc{{Paraules clau---}} #1}
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\nind}{\noindent}
+\newcommand{\res}[3]{$\left ( #1 \pm #2 \right ) \, \si{#3}$}
+\newcommand{\figref}[1]{figura \ref{#1}}
+\newcommand{\tabref}[1]{taula \ref{#1}}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\data}{\today}
+
+
+%___CAPÇALERA I PEU DE PÀGINA___%
+\pagestyle{fancy}
+\headheight=16pt
+\setlength{\headsep}{1cm}
+\fancypagestyle{headings}{
+\cfoot{\thepage}}
+\lhead{\scshape Òptica \textup{2020-21}}
+\rhead{\data \\ Marc Ballestero Ribó}
+
+%___CONFIGURACIÓ DEL PGFPLOTS___%
+\pgfplotsset{compat = 1.15}
+\pgfplotsset{
+    legend image with text/.style={
+        legend image code/.code={%
+            \node[anchor=center] at (0.3cm,0cm) {#1};
+        }
+    },
+    log x ticks with fixed point/.style={
+      xticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=0]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+    },
+    log y ticks with fixed point/.style={
+      yticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed zerofill, precision=0]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+  },
+}
+\usetikzlibrary{spy}
+
+%___CONFIGURACIÓ DELS PEUS DE FIGURA___%
+\captionsetup[figure]{justification = justified,labelfont={small,sc},textfont=small}
+\captionsetup[table]{name = Taula, justification = justified,labelfont={small,sc},textfont=small}
+
+%___DIRECTORI D'IMATGES___%
+\graphicspath{ {./Imatges/} }
+
+
+
+
+%___TÍTOL___%
+
+\title{\vspace{-1.5cm} Òptica \\ \vspace{1mm} Pràctica 6. Difracció de Fraunhofer}
+\author{Marc Ballestero Ribó - Grup D2}
+\date{\data}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+ \nind
+\end{abstract}
+
+
+\appendix
+\newpage
+\input{apendix}
+\end{document}
