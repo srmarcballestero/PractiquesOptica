@@ -1,0 +1,44 @@
+\begin{tikzpicture}[]
+\begin{axis}[
+    width = 12cm,
+    height = 7cm,
+    enlarge x limits=0.10,
+    enlarge y limits=0.10,
+    %minor tick num = 3,
+    xlabel={$x$ (\si{\milli\metre})},
+    ylabel={$I$ (\si{\arbitrary})},
+    xtick={-2,-1.5,...,2},
+    %scaled x tick = {real:3.141516},
+    ytick={0,50,...,300},
+    %xticklabels={$-3$, $-2$, $-1$, $0$, $1$, $2$, $3$},
+    minor xtick={-2.5,-2.4,...,2.5},
+    minor ytick={-30,-20,...,330},
+    xmin = -2, xmax = 2, extra x ticks ={},
+    ymin = 0, ymax = 300,
+    %extra y ticks ={4.18},
+    %ymode = log,
+    %log y ticks with fixed point,
+    legend image post style={scale=0.5},
+    legend pos=north west,
+    /pgf/number format/.cd,
+    1000 sep={},
+    x tick label style={
+    /pgf/number format/.cd,
+    fixed,
+    fixed zerofill,
+    precision=1
+  },
+    y tick label style={
+    /pgf/number format/.cd,
+    fixed,
+    fixed zerofill,
+    precision=0
+  },
+]
+\addplot[red, thick, scatter, scatter/classes={a={mark=diamond, red!80!, scale=0.5},b={mark=x,black,scale=1.2}}, scatter src=explicit symbolic
+    ] plot []table[x = x, y = I, meta=class]{Dades/Rect1 - Fil.csv};
+\addplot[blue, thick, opacity=0.6, scatter, scatter/classes={a={mark=+, blue!80!, scale=0.5, opacity=0.6},b={mark=x,black,scale=1.2}}, scatter src=explicit symbolic
+        ] plot []table[x = x, y = i, meta=class]{Dades/Rect1 - Fil.csv};
+\end{axis}
+\end{tikzpicture}
+\label{fig:Rect1-X}
