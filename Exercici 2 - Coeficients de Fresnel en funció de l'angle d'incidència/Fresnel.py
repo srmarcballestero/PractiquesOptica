@@ -9,17 +9,15 @@ Exercici 2 d'avaluació continuada.
     - En tot el codi es treballa en unitats del SI (inclosos angles en radians)
 """
 
+
 import numpy as np
 from numpy import sin, arcsin, cos, tan, arctan
 import matplotlib.pyplot as plt
 
+
 """
-Variables globals
-    n1: float                # índex de refracció del medi 1 (aire 1.000)
-    n2: float                # índex de refracció del medi 2 (vidre N-BK7 per lambda = 440 nm, font: http://refractiveindex.info)
+Funcions
 """
-n1 = 1.
-n2 = 1.5263
 
 
 def isBrewster(phi1, n2, n1=1.):
@@ -98,6 +96,12 @@ def rPerpendicular(phi1, n1, n2):
         return sin(phi2 - phi1) / sin(phi2 + phi1)
 
 
+"""
+Execució del programa
+"""
+
+n1 = 1.                                          # índex de refracció del medi 1 (aire 1.000)
+n2 = 1.5263                                      # índex de refracció del medi 2 (vidre N-BK7 per lambda = 440 nm, font: http://refractiveindex.info)
 N = 500                                          # nombre d'iteracions (resoució en phi1)
 phi = np.linspace(0, np.pi/2., num=N)            # valors de phi1
 t_parallel = np.zeros(N)                         # coef. de transmissió paral·lela
