@@ -124,21 +124,47 @@ r_diff = r_parallel - r_perpendicular
 Aproxima els coeficients de transmissió i reflexió per la mitjana en les components
 i estudia en quin rang l'error és inferior al 5%
 """
-t_approx = .5 * (t_parallel+t_perpendicular)
-r_approx = .5 * (r_parallel+r_perpendicular)
+t_approx = .5 * (t_parallel+t_perpendicular)                                    # valor aproximat de t
+r_approx = .5 * (r_parallel+r_perpendicular)                                    # valor aproximat de r
+
+t_parallel_errs = np.abs((t_approx-t_parallel) / t_parallel)                    # error relatiu respecte t paral·lel
+t_perpendicular_errs = np.abs((t_approx-t_perpendicular) / t_perpendicular)     # error relatiu respecte t perpendicular
+r_parallel_errs = np.abs((r_approx-r_parallel) / r_parallel)                    # error relatiu respecte r paral·lel
+r_perpendicular_errs = np.abs((r_approx-r_perpendicular) / r_perpendicular)     # error relatiu respecte r perpendicular
+
+t_phi1_intervals = np.array([])                                                 # intervals d'error acotat per t
+r_phi1_intervals = np.array([])                                                 # intervals d'error acotat per r
+
+err_bound = .05                                                                 # error relatiu màxim
+current_phi_range = np.array([])
+for (phi1, t_parallel_err, t_perpendicular_err) in zip(phi, t_parallel_errs, t_perpendicular_errs):
+    if t_parallel_err < err_bound and t_perpendicular_err < err_bound:
+        current_phi_range = np.append(current_phi_range, phi1)
+    else:
+        if current_phi_range.size > 0:
+            t_phi1_intervals = np.append(t_phi1_intervals, [np.array([np.min(current_phi_range), np.max(current_phi_range)])])
+            current_phi_range = np.array([])
+        else:
+            continue
+
+for (phi1, r_parallel_err, r_perpendicular_err) in zip(phi, r_parallel_errs, r_perpendicular_errs):
+    if r_parallel_err < err_bound and r_perpendicular_err < err_bound:
+        current_phi_range = np.append(current_phi_range, phi1)
+    else:
+        if current_phi_range.size > 0:
+            r_phi1_intervals = np.append(r_phi1_intervals, [np.array([np.min(current_phi_range), np.max(current_phi_range)])])
+            current_phi_range = np.array([])
+        else:
+            continue
 
 
-
+"""
+Representació gràfica dels resultats
+"""
 
 plt.plot(phi, t_parallel, color="red")
 plt.plot(phi, t_perpendicular, color="green")
-plt.plot(phi, t_approx, color="blue")
-"""
 plt.plot(phi, r_parallel, color="blue")
 plt.plot(phi, r_perpendicular, color="orange")
-"""
-"""
-plt.plot(phi, t_diff, color="cyan")
-plt.plot(phi, r_diff, color="yellow")
-"""
+
 plt.show()
