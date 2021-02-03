@@ -19,7 +19,7 @@
         ymin = -1, ymax = 1,
         extra x ticks = {56.768017},
         extra x tick labels = {{$\varphi_\textup{B}$}},
-        extra x tick style={grid=major, grid style={color=white}, ticklabel pos=top, font=normalsize},
+        extra x tick style={grid=major, grid style={color=white}, ticklabel pos=top, tick label style={font=\large}},
         extra y ticks = {-0.20833, 0.79167},
         extra y tick labels = {$\frac{n-n'}{n+n'}$, $\frac{2n}{n+n'}$},
         extra y tick style={grid=major, grid style={color=white}, draw=none, font=normalsize},
@@ -48,10 +48,10 @@
     \addplot[orange, thick] plot []table[y index = {3}]{Fresnel.csv};
     \addplot[olive, thick] plot []table[y index = {4}]{Fresnel.csv};
 
-    \addlegendentry{$t_\parallel$};
-    \addlegendentry{$t_\perp$};
-    \addlegendentry{$r_\parallel$};
-    \addlegendentry{$r_\perp$};
+    \addlegendentry{\large $t_\parallel$};
+    \addlegendentry{\large $t_\perp$};
+    \addlegendentry{\large $r_\parallel$};
+    \addlegendentry{\large $r_\perp$};
 
     \draw[black!80!, thick] (axis cs:-10,0) -- (axis cs:100,0);
 
