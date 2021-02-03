@@ -2,10 +2,7 @@
 Exercici 2 d'avaluació continuada.
 
  - Mòdul: Fresnel.py
- - Revisió: 02/02/2021
-
- NOTES:
-    - En tot el codi es treballa en unitats del SI (inclosos angles en radians)
+ - Revisió: 03/02/2021
 """
 
 
