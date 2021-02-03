@@ -185,15 +185,15 @@ print()
 """
 Escriptura de les dades en un fitxer .csv
 """
-csvwrite("./Fresnel.csv", phi, t_parallel, t_perpendicular, r_parallel, r_perpendicular, t_diff, r_diff)
+csvwrite("./Fresnel.csv", np.degrees(phi), t_parallel, t_perpendicular, r_parallel, r_perpendicular, t_diff, r_diff)
 
 
 """
 Representació gràfica dels resultats
 """
-plt.plot(np.degrees(phi), t_parallel, color="red")
-plt.plot(np.degrees(phi), t_perpendicular, color="green")
-plt.plot(np.degrees(phi), r_parallel, color="blue")
-plt.plot(np.degrees(phi), r_perpendicular, color="orange")
+plt.plot(np.degrees(phi), t_parallel, color='red')
+plt.plot(np.degrees(phi), t_perpendicular, color='green')
+plt.plot(np.degrees(phi), r_parallel, color='blue')
+plt.plot(np.degrees(phi), r_perpendicular, color='orange')
 
 plt.show()

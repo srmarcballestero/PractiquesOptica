@@ -1,0 +1,67 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.85]
+    \begin{axis}[
+        width = 14cm,
+        height = 8cm,
+        enlarge x limits=0.10,
+        enlarge y limits=0.10,
+        grid = major,
+        %minor tick num = 3,
+        xlabel={$\varphi$ (\si{\degree})},
+        ylabel={},
+        xticklabel={$\pgfmathprintnumber{\tick}^\circ$},
+        xtick = {0, 15,...,90},
+        ytick={-1,0,...,1},
+        minor xtick={0,5,...,90},
+        minor ytick={-1,-0.75,...,1},
+        xmin = 0, xmax = 90, extra x ticks ={},
+        ymin = -1, ymax = 1,
+        extra x ticks = {56.768017},
+        extra x tick labels = {{$\varphi_\textup{B}$}},
+        extra x tick style={grid=major, grid style={color=white}, ticklabel pos=top, font=normalsize},
+        extra y ticks = {-0.20833, 0.79167},
+        extra y tick labels = {$\frac{n-n'}{n+n'}$, $\frac{2n}{n+n'}$},
+        extra y tick style={grid=major, grid style={color=white}, draw=none, font=normalsize},
+        %log y ticks with fixed point,
+        legend image post style={scale=0.4},
+        legend pos=south west,
+        table/x index = {0},
+        table/col sep = comma,
+        /pgf/number format/.cd,
+        1000 sep={},
+        x tick label style={
+        /pgf/number format/.cd,
+        fixed,
+        fixed zerofill,
+        precision=0,
+      },
+        y tick label style={
+        /pgf/number format/.cd,
+        fixed,
+        fixed zerofill,
+        precision=0
+      },
+    ]
+    \addplot[red, thick] plot []table[y index = {1}]{Fresnel.csv};
+    \addplot[blue, thick] plot []table[y index = {2}]{Fresnel.csv};
+    \addplot[orange, thick] plot []table[y index = {3}]{Fresnel.csv};
+    \addplot[olive, thick] plot []table[y index = {4}]{Fresnel.csv};
+
+    \addlegendentry{$t_\parallel$};
+    \addlegendentry{$t_\perp$};
+    \addlegendentry{$r_\parallel$};
+    \addlegendentry{$r_\perp$};
+
+    \draw[black!80!, thick] (axis cs:-10,0) -- (axis cs:100,0);
+
+    \draw[gray, dotted, thick] (axis cs:56.768017,2) -- (axis cs:56.768017,0);
+
+    \draw[gray, dotted, thick] (axis cs:-10,-0.20833) -- (axis cs:0,-0.20833);
+    \draw[gray, dotted, thick] (axis cs:-10,0.79167) -- (axis cs:0,0.79167);
+
+    \end{axis}
+\end{tikzpicture}
+\captionof{figure}{Intensitat detectada pel díode en funció de l'angle de l'escala de l'analitzador, amb la representació de les mitjanes i desviacions estàndards corresponents.}
+\label{fig:Circular_I(b)}
+\end{figure}
