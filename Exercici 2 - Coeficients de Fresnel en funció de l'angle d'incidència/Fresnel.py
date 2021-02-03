@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-
 """
 Exercici 2 d'avaluació continuada.
+
  - Mòdul: Fresnel.py
  - Revisió: 02/02/2021
 
@@ -20,7 +19,21 @@ Funcions
 """
 
 
-def isBrewster(phi1, n2, n1=1.):
+def csvwrite(nom_out, *cols):
+    """Escriu el contingut d'un conjunt d'arrays en un fitxer .csv per columnes."""
+    lens = set([len(col) for col in cols])
+    if len(lens) != 1:
+        raise IndexError("Els arrays no tenen la mateixa mida.")
+
+    else:
+        with open(nom_out, "w") as fout:
+            for i in range(min(lens)):
+                for j in range(len(cols) - 1):
+                    fout.write("%e," % (cols[j][i]))
+                fout.write("%e\n" % (cols[j+1][i]))
+
+
+def isBrewster(phi1, n1, n2):
     """Comprova si s'incideix en l'angle de Brewster."""
     if phi1 == arctan(n2/n1):
         return True
@@ -136,39 +149,53 @@ t_perpendicular_errs = np.abs((t_approx-t_perpendicular) / t_perpendicular)     
 r_parallel_errs = np.abs((r_approx-r_parallel) / r_parallel)                    # error relatiu respecte r paral·lel
 r_perpendicular_errs = np.abs((r_approx-r_perpendicular) / r_perpendicular)     # error relatiu respecte r perpendicular
 
-t_phi1_intervals = np.array([])                                                 # intervals d'error acotat per t
-r_phi1_intervals = np.array([])                                                 # intervals d'error acotat per r
+t_phi1_intervals = []                                                           # intervals d'error acotat per t
+r_phi1_intervals = []                                                           # intervals d'error acotat per r
 
 err_bound = .05                                                                 # error relatiu màxim
-current_phi_range = np.array([])
+current_phi_range = []
 for (phi1, t_parallel_err, t_perpendicular_err) in zip(phi, t_parallel_errs, t_perpendicular_errs):
     if t_parallel_err < err_bound and t_perpendicular_err < err_bound:
-        current_phi_range = np.append(current_phi_range, phi1)
+        current_phi_range.append(phi1)
     else:
-        if current_phi_range.size > 0:
-            t_phi1_intervals = np.append(t_phi1_intervals, [np.array([np.min(current_phi_range), np.max(current_phi_range)])])
-            current_phi_range = np.array([])
+        if len(current_phi_range) > 0:
+            t_phi1_intervals.append([np.min(current_phi_range), np.max(current_phi_range)])
+            current_phi_range.clear()
         else:
             continue
 
 for (phi1, r_parallel_err, r_perpendicular_err) in zip(phi, r_parallel_errs, r_perpendicular_errs):
     if r_parallel_err < err_bound and r_perpendicular_err < err_bound:
-        current_phi_range = np.append(current_phi_range, phi1)
+        current_phi_range.append(phi1)
     else:
-        if current_phi_range.size > 0:
-            r_phi1_intervals = np.append(r_phi1_intervals, [np.array([np.min(current_phi_range), np.max(current_phi_range)])])
-            current_phi_range = np.array([])
+        if len(current_phi_range) > 0:
+            r_phi1_intervals.append([np.min(current_phi_range), np.max(current_phi_range)])
+            current_phi_range.clear()
         else:
             continue
 
+print("Rang(s) angular(s) en què t_approx té un error menor al 5%:", end=" ")
+for interval in t_phi1_intervals:
+    print("[%.2f, %.2f]" % (interval[0], interval[1]), end=" ")
+print()
+
+print("Rang(s) angular(s) en què r_approx té un error menor al 5%:", end=" ")
+for interval in r_phi1_intervals:
+    print("[%.2f, %.2f]" % (interval[0], interval[1]), end=" ")
+print()
+
+
+"""
+Escriptura de les dades en un fitxer .csv
+"""
+csvwrite("./Fresnel.csv", phi, t_parallel, t_perpendicular, r_parallel, r_perpendicular, t_diff, r_diff)
 
 """
 Representació gràfica dels resultats
 """
-
-plt.plot(phi, t_parallel, color="red")
-plt.plot(phi, t_perpendicular, color="green")
-plt.plot(phi, r_parallel, color="blue")
-plt.plot(phi, r_perpendicular, color="orange")
+plt.plot(np.degrees(phi), t_parallel, color="red")
+plt.plot(np.degrees(phi), t_perpendicular, color="green")
+plt.plot(np.degrees(phi), r_parallel, color="blue")
+plt.plot(np.degrees(phi), r_perpendicular, color="orange")
 
 plt.show()
