@@ -122,6 +122,10 @@
 \begin{document}
 \maketitle
 
+\begin{abstract}
+  \nind L'objectiu d'aquest exercici és, d'una banda, representar gràficament els coeficients de Fresnel per a la interacció d'un feix de llum amb la interfase entre l'aire ($n=\num{1.000}$) i un medi dielèctric ($n'=\num{1.5263}$), i de l'altra, justificar diverses maneres d'aproximar aquests valors per a angles d'incidència petits, entre elles la consistent en imposar $r_\parallel = r_\perp$ i $t_\parallel = t_\perp$ en les reflexions de làmines plano-paral·leles.
+\end{abstract}
+
 \section*{Càlcul i representació dels coeficients de Fresnel} \label{sec:CalculRepresentacio}
 Considerem un feix de llum que incideix des de l'aire ($n = \num{1.000}$) cap a un medi dielèctric d'índex de refracció $n' = \num{1.5263}$, calculat seguint les indicacions de l'enunciat.
 \ifx
@@ -150,11 +154,12 @@ En la figura \ref{fig:Fresnel_diffs} es representa la diferència entre els coef
 
 \input{Figures/Fresnel_diffs}
 
-De fet, podem considerar l'aproximació consistent en prendre el valor de $t_\parallel$ i $t_\perp$ com la mitjana d'aquests dos, ídem per als coeficients de reflexió. En aquest cas, en la figura \ref{fig:fresnel_approx} veiem que és una aproximació igualment vàlida per angles propers a $\SI{0}{\degree}$. Encara més, mitjançant el programa de generació de les dades, s'ha trobat el rang angular en què l'error relatiu de l'aproximació respecte el valor real és menor al 5\%, obtenint la sortida
+De fet, podem considerar l'aproximació consistent en prendre el valor de $t_\parallel$ i $t_\perp$ com la mitjana d'aquests dos, ídem per als coeficients de reflexió. En aquest cas, en la figura \ref{fig:Fresnel_approx} veiem que és una aproximació igualment vàlida per angles propers a $\SI{0}{\degree}$. Encara més, mitjançant el programa de generació de les dades, s'ha trobat el rang angular en què l'error relatiu de l'aproximació respecte el valor real és menor al 5\%, obtenint la sortida
 \begin{center}
 \texttt{> Rang(s) angular(s) en què t\_approx té un error menor al 5\%: [$0.00^\circ$, $58.62^\circ$]\\
 > Rang(s) angular(s) en què r\_approx té un error menor al 5\%: [$0.00^\circ$, $15.15^\circ$]}
 \end{center}
+la qual cosa posa de manifest que els coeficients de Fresnel es poden aproximar satisfactòriament per la seva mitjana en cada component en un rang angular notable, fins al punt que el coeficient de transmissó aproximat presenta un error inferior al 5\% en un rang d'uns \SI{60}{\degree}.
 \input{Figures/Fresnel_approx}
 
 \end{document}
