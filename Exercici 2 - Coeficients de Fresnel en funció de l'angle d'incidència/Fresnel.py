@@ -1,5 +1,5 @@
 """
-Exercici 2 d'avaluació continuada.
+Exercici 2 d'avaluació continuada. Òptica 2020-21.
 
  - Mòdul: Fresnel.py
  - Autor: Marc Ballestero Ribó
