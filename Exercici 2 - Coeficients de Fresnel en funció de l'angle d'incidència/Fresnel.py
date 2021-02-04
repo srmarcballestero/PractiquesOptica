@@ -2,16 +2,16 @@
 Exercici 2 d'avaluació continuada.
 
  - Mòdul: Fresnel.py
- - Revisió: 03/02/2021
+ - Autor: Marc Ballestero Ribó
+ - Revisió: 04/02/2021
 """
-
 
 import numpy as np
 from numpy import sin, arcsin, cos, tan, arctan
 import matplotlib.pyplot as plt
 
 
-degs = u"\N{DEGREE SIGN}"
+degs = u"\N{DEGREE SIGN}"                           # símbol de graus per a la funció print()
 
 
 """
@@ -22,9 +22,9 @@ Funcions
 def csvwrite(nom_out, *cols):
     """Escriu el contingut d'un conjunt d'arrays en un fitxer .csv per columnes."""
     lens = set([len(col) for col in cols])
+
     if len(lens) != 1:
         raise IndexError("Els arrays no tenen la mateixa mida.")
-
     else:
         with open(nom_out, "w") as fout:
             for i in range(min(lens)):
@@ -115,7 +115,7 @@ Execució del programa
 
 n1 = 1.                                          # índex de refracció del medi 1 (aire 1.000)
 n2 = 1.5263                                      # índex de refracció del medi 2 (vidre N-BK7 per lambda = 440 nm, font: http://refractiveindex.info)
-N = 500                                          # nombre d'iteracions (resoució en phi1)
+N = 500                                          # nombre d'iteracions (resolució en phi1)
 phi = np.linspace(0, np.pi/2., num=N)            # valors de phi1
 t_parallel = np.zeros(N)                         # coef. de transmissió paral·lela
 t_perpendicular = np.zeros(N)                    # coef. de transmissió perpendicular
@@ -146,16 +146,20 @@ r_approx = .5 * (r_parallel+r_perpendicular)                                    
 
 t_parallel_errs = np.abs((t_approx-t_parallel) / t_parallel)                    # error relatiu respecte t paral·lel
 t_perpendicular_errs = np.abs((t_approx-t_perpendicular) / t_perpendicular)     # error relatiu respecte t perpendicular
-r_parallel_errs = np.abs((r_approx-r_parallel) / (r_parallel))                # error relatiu respecte r paral·lel
+r_parallel_errs = np.abs((r_approx-r_parallel) / r_parallel)                    # error relatiu respecte r paral·lel
 r_perpendicular_errs = np.abs((r_approx-r_perpendicular) / r_perpendicular)     # error relatiu respecte r perpendicular
 
-t_approx_err = np.sqrt(t_parallel_errs**2 + t_perpendicular_errs**2)
-r_approx_err = np.sqrt(0*r_parallel_errs**2 + r_perpendicular_errs**2)
+t_approx_err = np.sqrt(t_parallel_errs**2 + t_perpendicular_errs**2)            # suma quadràtica dels errors relatius
+r_approx_err = np.sqrt(0*r_parallel_errs**2 + r_perpendicular_errs**2)          # suma quadràtica dels errors relatius
 
 t_phi1_intervals = []                                                           # intervals d'error acotat per t
 r_phi1_intervals = []                                                           # intervals d'error acotat per r
 
-err_bound = .05                                                                 # error relatiu màxim
+err_bound = .05                                                                 # error relatiu admès
+
+"""
+Calcula els intervals on l'error està acotat per err_bound
+"""
 current_phi_range = []
 for (phi1, t_parallel_err, t_perpendicular_err) in zip(phi, t_parallel_errs, t_perpendicular_errs):
     if t_parallel_err < err_bound and t_perpendicular_err < err_bound:
@@ -191,7 +195,7 @@ print()
 
 
 """
-Escriptura de les dades en un fitxer .csv
+Escriptura de les dades en un fitxer .csv per a la representació gràfica en PGFplots
 """
 csvwrite("./Fresnel.csv", np.degrees(phi), t_parallel, t_perpendicular, r_parallel, r_perpendicular,
          t_diff, r_diff, t_approx, r_approx, t_approx_err, r_approx_err)
