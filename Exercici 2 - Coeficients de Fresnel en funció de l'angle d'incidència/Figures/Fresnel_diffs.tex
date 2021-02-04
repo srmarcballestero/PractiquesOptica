@@ -12,20 +12,20 @@
         ylabel={},
         xticklabel={$\pgfmathprintnumber{\tick}^\circ$},
         xtick = {0, 15,...,90},
-        ytick={-1,0,...,1},
+        ytick={0,1,...,2},
         minor xtick={0,5,...,90},
-        minor ytick={-1,-0.75,...,1},
+        minor ytick={0,0.75,...,2},
         xmin = 0, xmax = 90, extra x ticks ={},
-        ymin = -1, ymax = 1,
-        extra x ticks = {56.768017},
-        extra x tick labels = {{$\varphi_\textup{B}$}},
-        extra x tick style={grid=major, grid style={color=white}, ticklabel pos=top, tick label style={font=\large}},
-        extra y ticks = {-0.20833, 0.79167},
-        extra y tick labels = {$\frac{n-n'}{n+n'}$, $\frac{2n}{n+n'}$},
-        extra y tick style={grid=major, grid style={color=white}, draw=none, font=normalsize},
+        ymin = 0, ymax = 2,
+        %extra x ticks = {56.768017},
+        %extra x tick labels = {{$\varphi_\textup{B}$}},
+        %extra x tick style={grid=major, grid style={color=white}, ticklabel pos=top, tick label style={font=\large}},
+        %extra y ticks = {-0.20833, 0.79167},
+        %extra y tick labels = {$\frac{n-n'}{n+n'}$, $\frac{2n}{n+n'}$},
+        %extra y tick style={grid=major, grid style={color=white}, draw=none, font=normalsize},
         %log y ticks with fixed point,
         legend image post style={scale=0.8},
-        legend pos=south west,
+        legend pos=north west,
         table/x index = {0},
         table/col sep = comma,
         /pgf/number format/.cd,
@@ -43,22 +43,20 @@
         precision=0
       },
     ]
-    \addplot[red, thick] plot []table[y index = {1}]{Fresnel.csv};
-    \addplot[blue, thick] plot []table[y index = {2}]{Fresnel.csv};
-    \addplot[orange, thick] plot []table[y index = {3}]{Fresnel.csv};
-    \addplot[olive, thick] plot []table[y index = {4}]{Fresnel.csv};
+    \addplot[red, thick] plot []table[y index = {5}]{Fresnel.csv};
+    \addplot[blue, thick] plot []table[y index = {6}]{Fresnel.csv};
+    %\addplot[orange, thick] plot []table[y index = {7}]{Fresnel.csv};
+    %\addplot[olive, thick] plot []table[y index = {8}]{Fresnel.csv};
 
-    \addlegendentry{\large $t_\parallel$};
-    \addlegendentry{\large $t_\perp$};
-    \addlegendentry{\large $r_\parallel$};
-    \addlegendentry{\large $r_\perp$};
+    \addlegendentry{\large $t_\parallel - t_\perp$};
+    \addlegendentry{\large $r_\parallel - r_\perp$}
 
     \draw[black!80!, thick] (axis cs:-10,0) -- (axis cs:100,0);
 
-    \draw[gray, dotted, thick] (axis cs:56.768017,2) -- (axis cs:56.768017,0);
+    %\draw[gray, dotted, thick] (axis cs:56.768017,2) -- (axis cs:56.768017,0);
 
-    \draw[gray, dotted, thick] (axis cs:-10,-0.20833) -- (axis cs:0,-0.20833);
-    \draw[gray, dotted, thick] (axis cs:-10,0.79167) -- (axis cs:0,0.79167);
+    %\draw[gray, dotted, thick] (axis cs:-10,-0.20833) -- (axis cs:0,-0.20833);
+    %\draw[gray, dotted, thick] (axis cs:-10,0.79167) -- (axis cs:0,0.79167);
 
     \end{axis}
 \end{tikzpicture}

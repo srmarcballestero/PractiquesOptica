@@ -11,6 +11,9 @@ from numpy import sin, arcsin, cos, tan, arctan
 import matplotlib.pyplot as plt
 
 
+degs = u"\N{DEGREE SIGN}"
+
+
 """
 Funcions
 """
@@ -143,8 +146,11 @@ r_approx = .5 * (r_parallel+r_perpendicular)                                    
 
 t_parallel_errs = np.abs((t_approx-t_parallel) / t_parallel)                    # error relatiu respecte t paral·lel
 t_perpendicular_errs = np.abs((t_approx-t_perpendicular) / t_perpendicular)     # error relatiu respecte t perpendicular
-r_parallel_errs = np.abs((r_approx-r_parallel) / r_parallel)                    # error relatiu respecte r paral·lel
+r_parallel_errs = np.abs((r_approx-r_parallel) / (r_parallel))                # error relatiu respecte r paral·lel
 r_perpendicular_errs = np.abs((r_approx-r_perpendicular) / r_perpendicular)     # error relatiu respecte r perpendicular
+
+t_approx_err = np.sqrt(t_parallel_errs**2 + t_perpendicular_errs**2)
+r_approx_err = np.sqrt(0*r_parallel_errs**2 + r_perpendicular_errs**2)
 
 t_phi1_intervals = []                                                           # intervals d'error acotat per t
 r_phi1_intervals = []                                                           # intervals d'error acotat per r
@@ -173,27 +179,37 @@ for (phi1, r_parallel_err, r_perpendicular_err) in zip(phi, r_parallel_errs, r_p
 
 print("Rang(s) angular(s) en què t_approx té un error menor al 5%:", end=" ")
 for interval in t_phi1_intervals:
-    print("[%.2f, %.2f]" % (interval[0], interval[1]), end=" ")
+    interval = np.degrees(interval)
+    print("[%.2f%s, %.2f%s]" % (interval[0], degs, interval[1], degs), end=" ")
 print()
 
 print("Rang(s) angular(s) en què r_approx té un error menor al 5%:", end=" ")
 for interval in r_phi1_intervals:
-    print("[%.2f, %.2f]" % (interval[0], interval[1]), end=" ")
+    interval = np.degrees(interval)
+    print("[%.2f%s, %.2f%s]" % (interval[0], degs, interval[1], degs), end=" ")
 print()
 
 
 """
 Escriptura de les dades en un fitxer .csv
 """
-csvwrite("./Fresnel.csv", np.degrees(phi), t_parallel, t_perpendicular, r_parallel, r_perpendicular, t_diff, r_diff)
+csvwrite("./Fresnel.csv", np.degrees(phi), t_parallel, t_perpendicular, r_parallel, r_perpendicular,
+         t_diff, r_diff, t_approx, r_approx, t_approx_err, r_approx_err)
 
 
 """
 Representació gràfica dels resultats
 """
-plt.plot(np.degrees(phi), t_parallel, color='red')
-plt.plot(np.degrees(phi), t_perpendicular, color='green')
-plt.plot(np.degrees(phi), r_parallel, color='blue')
-plt.plot(np.degrees(phi), r_perpendicular, color='orange')
+fig, (ax1, ax2) = plt.subplots(2)
+
+ax1.plot(np.degrees(phi), t_parallel, color='red')
+ax1.plot(np.degrees(phi), t_perpendicular, color='green')
+ax1.plot(np.degrees(phi), r_parallel, color='blue')
+ax1.plot(np.degrees(phi), r_perpendicular, color='orange')
+
+ax2.plot(np.degrees(phi), t_diff, color='red')
+ax2.plot(np.degrees(phi), r_diff, color='blue')
+ax2.plot(np.degrees(phi), t_approx, color='green')
+ax2.plot(np.degrees(phi), r_approx, color='orange')
 
 plt.show()
