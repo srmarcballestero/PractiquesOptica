@@ -122,12 +122,39 @@
 \begin{document}
 \maketitle
 
-\begin{abstract}
- \nind 
-\end{abstract}
+\section*{Càlcul i representació dels coeficients de Fresnel} \label{sec:CalculRepresentacio}
+Considerem un feix de llum que incideix des de l'aire ($n = \num{1.000}$) cap a un medi dielèctric d'índex de refracció $n' = \num{1.5263}$, calculat seguint les indicacions de l'enunciat.
+\ifx
+L'amplitud de les components dels camps incident, transmès, i reflectit, es relacionen seguint les equacions de fresnel, donades per
+\begin{equation} \label{eq:fresnelt}
+  t_\parallel = \frac{A'_\parallel}{A_\parallel} = \frac{2\sin{\varphi'}\cos{\varphi}}{\sin{\left(\varphi'+\varphi\right)}\cos{\left(\varphi'-\varphi\right)}}, \hspace{2mm} t_\perp = \frac{A'_\perp}{A_\perp} = \frac{2\sin{\varphi'}\cos{\varphi}}{\sin{\left(\varphi'+\varphi\right)}}
+\end{equation}
+\begin{equation} \label{eq:fresnelr}
+  r_\parallel = \frac{A''_\parallel}{A_\parallel} = \frac{\tan{\left(\varphi'-\varphi\right)}}{\tan{\left(\varphi'+\varphi\right)}}, \hspace{2mm} r_\perp = \frac{A''_\perp}{A_\perp} = \frac{\sin{\left(\varphi'-\varphi\right)}}{\sin{\left(\varphi'+\varphi\right)}} \\
+\end{equation}
+
+on $\varphi$ és l'angle d'incidència i $\varphi'$ és l'angle de transmissió calculat segons la llei de Snell.
+\fi
+Mitjançant el mòdul de Python adjunt \texttt{Fresnel.py}, s'ha calculat la variació dels coeficients de Fresnel en el rang angular $\left[\SI{0}{\degree}, \SI{90}{\degree}\right]$ (en els comentaris del propi codi font està explicat el seu funcionament). Les dades obtingudes s'han bolcat en un fitxer \texttt{.csv} i posteriorment s'han representat usant l'eina PGFplots de \LaTeX.
+
+En la figura \ref{fig:Fresnel_coeffs} es representen els valors obtinguts dels coeficients de Fresnel en funció de l'angle d'incidència. Notem que per incidència normal ($\varphi = \SI{0}{\degree}$), tenim que
+\begin{equation} \label{eq:incidencianormal}
+  t_\parallel = t_\perp = \frac{2n}{n+n'}, \hspace{2mm} r_\parallel = r_\perp = \frac{n-n'}{n+n'}
+\end{equation}
+i que en l'angle de Brewster $\varphi_\textup{B}$ el coeficient $r_\parallel$ s'anul·la.
 
 \input{Figures/Fresnel_coeffs}
+
+\section*{Aproximació per angles petits}
+En la figura \ref{fig:Fresnel_diffs} es representa la diferència entre els coeficients de reflexió paral·lel i perpendicular i l'equivalent per als coeficients de transmissió. Notem que a l'entorn de $\SI{0}{\degree}$, ambdos valors són molt propers a $0$, la qual cosa justifica que en les interferències de làmines plano-paral·leles s'aproximin pel mateix valor.
+
 \input{Figures/Fresnel_diffs}
+
+De fet, podem considerar l'aproximació consistent en prendre el valor de $t_\parallel$ i $t_\perp$ com la mitjana d'aquests dos, ídem per als coeficients de reflexió. En aquest cas, en la figura \ref{fig:fresnel_approx} veiem que és una aproximació igualment vàlida per angles propers a $\SI{0}{\degree}$. Encara més, mitjançant el programa de generació de les dades, s'ha trobat el rang angular en què l'error relatiu de l'aproximació respecte el valor real és menor al 5\%, obtenint la sortida
+\begin{center}
+\texttt{> Rang(s) angular(s) en què t\_approx té un error menor al 5\%: [$0.00^\circ$, $58.62^\circ$]\\
+> Rang(s) angular(s) en què r\_approx té un error menor al 5\%: [$0.00^\circ$, $15.15^\circ$]}
+\end{center}
 \input{Figures/Fresnel_approx}
 
 \end{document}
